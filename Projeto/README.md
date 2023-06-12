@@ -1,0 +1,15 @@
+# Projeto MC322
+Desenvolvimento de uma aplicação que facilita o dia a dia de um estudante.
+# Integrantes
+<p>
+    Caio Azevedo Dal Porto - RA: 256709
+</p>
+<p>
+    Lucas Cardoso - RA:246125
+</p>
+<p>
+    Lucas Gugel Maciel - RA: 260579
+</p>
+<p>
+    Matheus Hencklein Ponte - RA: 247277
+</p>
