@@ -47,6 +47,4 @@ public abstract class Avaliacoes {
     public void setPesoNaMedia(double pesoNaMedia) {
         this.pesoNaMedia = pesoNaMedia;
     }
-
-    
 }
