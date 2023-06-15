@@ -1,4 +1,7 @@
+package model;
 import java.util.ArrayList;
+
+import controller.Medias;
 
 public class Materia {
     private String nome;

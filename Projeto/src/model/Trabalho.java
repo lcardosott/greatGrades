@@ -1,5 +1,11 @@
+package model;
+
 import java.util.ArrayList;
 import java.util.Date;
+
+import controller.Validacao;
+
+//mvc-model view controle
 
 public class Trabalho extends Avaliacoes {
     private ArrayList<String> grupoTrabalho;
