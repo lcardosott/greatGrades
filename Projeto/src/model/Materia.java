@@ -57,6 +57,14 @@ public class Materia {
         return tipoMedia;
     }
 
+    public ArrayList<Prova> getListaProvas() {
+        return listaProvas;
+    }
+
+    public ArrayList<Trabalho> getListaTrabalho() {
+        return listaTrabalhos;
+    }
+
     
     //Setters
     public void setNome(String nome) {
@@ -171,7 +179,6 @@ public class Materia {
         }
         
     }
-
     public boolean jaPassou() {
         //verifica se, com a média atual, o aluno já foi aprovado na matéria.
         if (mediaAtual >= notaMinima) {
