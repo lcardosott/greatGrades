@@ -22,7 +22,7 @@ public class FrameInicial extends JFrame {
         } catch (FontFormatException|IOException e) {
             System.err.println("Erro ao carregar fonte");
             e.printStackTrace();  
-        } 
+        }
 
         //Imagens
         ImageIcon logo = new ImageIcon("imagens/Logo.jpg");
@@ -74,7 +74,6 @@ public class FrameInicial extends JFrame {
         painelDireita.add(painelCadastro);
         painelDireita.add(labelFundo);
         
-
         //Default settings
         this.setSize(Utilidades.redimensionarFrameTotal());
         this.setIconImage(logo.getImage());
@@ -82,7 +81,7 @@ public class FrameInicial extends JFrame {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setTitle("Great Grades");
         this.setVisible(true);
-        this.setLayout(null);
+        this.setLayout(null); //positions defined explicitly by the programmer
         this.setIconImage(logo.getImage());
         this.getContentPane().setBackground(Color.GRAY);
 

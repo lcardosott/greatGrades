@@ -17,5 +17,14 @@ public class BotaoLogin extends JButton implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == this);
+        /*
+        Verificar se o usuário bate com a senha
+        se sim, abrir a página principal
+            frame.dispose();
+            MainFrame mainFrame = new MainFrame();
+
+        se não, avisar que o usuário ou senha está incorreto
+            JOptionPane.showMessageDialog(null, "A senha ou usuário está incorreta. Tente novamente.", "Senha ou usuário inválido", JOptionPane.INFORMATION_MESSAGE);
+        */
     }
 }
