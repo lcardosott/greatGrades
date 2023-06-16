@@ -1,3 +1,4 @@
+package view;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.FontFormatException;
@@ -17,7 +18,7 @@ public class FrameInicial extends JFrame {
         //Fonte
         Font fonte = new Font("Arial", Font.PLAIN, 20);
         try {
-            fonte = Font.createFont(Font.TRUETYPE_FONT,new File("Sacramento-Regular.ttf")).deriveFont(Font.PLAIN, 50);
+            fonte = Font.createFont(Font.TRUETYPE_FONT,new File("Fontes/Sacramento-Regular.ttf")).deriveFont(Font.PLAIN, 50);
         } catch (FontFormatException|IOException e) {
             System.err.println("Erro ao carregar fonte");
             e.printStackTrace();  
@@ -51,8 +52,8 @@ public class FrameInicial extends JFrame {
         greatGrades.setBounds((Utilidades.dimensoesProporçãoLargura(0.4)-300)/2, 30, 278, 400);
         greatGrades.setOpaque(true);
 
-        painelEsquerda.add(greatGrades);
         painelEsquerda.add(painelLogin);
+        painelEsquerda.add(greatGrades);
         
 
 
