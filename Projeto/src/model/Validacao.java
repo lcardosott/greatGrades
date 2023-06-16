@@ -1,4 +1,4 @@
-package controller;
+package model;
 public class Validacao {
 
     public static boolean validaNome (String nome) {

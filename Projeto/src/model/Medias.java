@@ -1,4 +1,5 @@
-package controller;
+package model;
+
 public enum Medias {
     MEDIA_ARITMETICA_SIMPLES(1),
     MEDIA_PONDERADA(2),

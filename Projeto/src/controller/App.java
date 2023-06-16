@@ -4,8 +4,10 @@ package controller;
 //import javax.swing.JFrame;
 import view.MyFrame;
 
+import view.FrameInicial;
+
 public class App {
     public static void main(String[] args) {
-        new MyFrame();
+        new FrameInicial();
     }
 }
