@@ -1,11 +1,12 @@
 # Projeto MC322
 Desenvolvimento de uma aplicação que facilita o dia a dia de um estudante.
+A ideia é criar o GreatGrades que auxilia o estudante no cálculo de notas, médias, número de faltas, etc.
 # Integrantes
 <p>
     Caio Azevedo Dal Porto - RA: 256709
 </p>
 <p>
-    Lucas Cardoso - RA:246125
+    Lucas Cardoso - RA: 246125
 </p>
 <p>
     Lucas Gugel Maciel - RA: 260579
