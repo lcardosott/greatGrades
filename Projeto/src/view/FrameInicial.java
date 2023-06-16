@@ -62,7 +62,7 @@ public class FrameInicial extends JFrame {
         painelDireita.setBounds(Utilidades.dimensoesProporçãoLargura(0.4)+1,0, Utilidades.dimensoesProporçãoLargura(0.6),Utilidades.dimensoesProporçãoAltura(1));
         painelDireita.setOpaque(true);
 
-        PainelCadastro painelCadastro = new PainelCadastro();
+        PainelCadastro painelCadastro = new PainelCadastro(this);
 
         //Label que carrega o fundo
         JLabel labelFundo = new JLabel();

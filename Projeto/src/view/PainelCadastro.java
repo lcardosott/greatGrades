@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.BorderFactory;
+import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -12,14 +13,17 @@ import controller.Cadastro;
 
 public class PainelCadastro extends JPanel implements ActionListener {
     //Cores
-    Color roxo = new Color(0xFDB5ED);
-    BotaoCadastro botaoCadastro;
-    JTextField nomeCadastro;
-    JTextField usuarioCadastro;
-    JTextField instituicaoCadastro;
-    JTextField cursoCadastro;
-    JTextField senhaCadastro;
-    public PainelCadastro () {
+    private Color roxo = new Color(0xFDB5ED);
+    private BotaoCadastro botaoCadastro;
+    private JTextField nomeCadastro;
+    private JTextField usuarioCadastro;
+    private JTextField instituicaoCadastro;
+    private JTextField cursoCadastro;
+    private JTextField senhaCadastro;
+    //private JFrame frame;
+
+    public PainelCadastro (JFrame frame) {
+        //this.frame = frame;
         this.setBackground(roxo);
         this.setLayout(null);
         this.setBounds((Utilidades.dimensoesProporçãoLargura(0.6)-500)/2, (Utilidades.dimensoesProporçãoAltura(1)-500)/2 -30, 500, 500);
@@ -85,6 +89,7 @@ public class PainelCadastro extends JPanel implements ActionListener {
             String curso = cursoCadastro.getText();
             String senha = senhaCadastro.getText();
             new Cadastro(usuario, nome, instituicao, curso, senha);
+            //frame.dispose();
         }
     }
 }
