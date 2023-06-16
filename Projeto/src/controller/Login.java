@@ -13,7 +13,8 @@ public class Login {
             JOptionPane.showMessageDialog(null, "Login realizado com sucesso!", "Bem vindo!", JOptionPane.PLAIN_MESSAGE);
         }
     }
-    public Usuario getUsuario() {
+
+    public Usuario getUser() {
         return user;
     }
 }

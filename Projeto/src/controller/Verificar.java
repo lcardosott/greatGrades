@@ -7,8 +7,10 @@ import java.io.IOException;
 import javax.swing.JOptionPane;
 
 public class Verificar {
-    //verifica informações retornando true ou false;
+    //Essa classe verifica informações retornando true ou false;
+
     public static boolean usuarioJaExiste (String usuario) {
+        //verifica se um usuário já existe para evitar que sejam criados usuários com o mesmo nome
         File usersCSV = new File("Projeto\\src\\controller\\Files\\Users.csv");
         String line = "";
         boolean existe = false;
