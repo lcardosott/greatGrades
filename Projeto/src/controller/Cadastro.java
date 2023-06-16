@@ -50,4 +50,8 @@ public class Cadastro {
     public static ArrayList<Usuario> getListaUsers() {
         return listaUsers;
     }
+
+    public Usuario getUser () {
+        return user;
+    }
 }
