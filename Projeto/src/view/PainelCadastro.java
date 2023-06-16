@@ -1,37 +1,48 @@
 package view;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class PainelCadastro extends JPanel{
+import controller.Cadastro;
+
+public class PainelCadastro extends JPanel implements ActionListener {
     //Cores
     Color roxo = new Color(0xFDB5ED);
     BotaoCadastro botaoCadastro;
-    public PainelCadastro(){
+    JTextField nomeCadastro;
+    JTextField usuarioCadastro;
+    JTextField instituicaoCadastro;
+    JTextField cursoCadastro;
+    JTextField senhaCadastro;
+    public PainelCadastro () {
         this.setBackground(roxo);
         this.setLayout(null);
         this.setBounds((Utilidades.dimensoesProporçãoLargura(0.6)-500)/2, (Utilidades.dimensoesProporçãoAltura(1)-500)/2 -30, 500, 500);
         this.setBorder(BorderFactory.createEtchedBorder());
 
 
-        JTextField nomeCadastro = new JTextField();
+        nomeCadastro = new JTextField();
         nomeCadastro.setBounds(35, 101, 430, 35);
 
-        JTextField usuarioCadastro = new JTextField();
+        usuarioCadastro = new JTextField();
         usuarioCadastro.setBounds(35, 166, 430, 35);
 
-        JTextField instituicaoCadastro = new JTextField();
+        instituicaoCadastro = new JTextField();
         instituicaoCadastro.setBounds(35, 226, 430, 35);
 
-        JTextField cursoCadastro = new JTextField();
+        cursoCadastro = new JTextField();
         cursoCadastro.setBounds(35, 286, 430, 35);
 
-        JTextField senhaCadastro = new JTextField();
+        senhaCadastro = new JTextField();
         senhaCadastro.setBounds(35, 346, 430, 35);
 
-        botaoCadastro= new BotaoCadastro();
+        botaoCadastro = new BotaoCadastro();
+        botaoCadastro.addActionListener(this);
 
         //Label que carrega o cadastro
         LabelIndicacao labelNovo = new LabelIndicacao("Novo por aqui?", new Font("Arial",Font.BOLD,30), roxo);
@@ -65,5 +76,15 @@ public class PainelCadastro extends JPanel{
         this.add(senhaCadastro);
         this.add(botaoCadastro);
     }
-    
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == botaoCadastro) {
+            String nome = nomeCadastro.getText();
+            String usuario = usuarioCadastro.getText();
+            String instituicao = instituicaoCadastro.getText();
+            String curso = cursoCadastro.getText();
+            String senha = senhaCadastro.getText();
+            new Cadastro(usuario, nome, instituicao, curso, senha);
+        }
+    }
 }

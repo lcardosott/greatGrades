@@ -1,25 +1,21 @@
 package model;
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.concurrent.TimeUnit;
 
 public class Usuario {
     private String usuario;
     private String nome;
     private String faculdade;
-    private Date  dataNascimento;
-    private int idade;
     private ArrayList<Materia> listaMaterias;
     private String senha;
+    private String curso;
 
-    public Usuario(String usuario, String nome, String faculdade, Date dataNascimento, String senha) {
+    public Usuario(String usuario, String nome, String faculdade, String curso, String senha) {
         this.usuario = usuario;
         this.nome = nome;
         this.faculdade = faculdade;
-        this.dataNascimento = dataNascimento;
         this.senha = senha;
+        this.curso = curso;
         listaMaterias = new ArrayList<Materia>();
-        idade = calcIdade(dataNascimento);
     }
 
     //Getters e Setters
@@ -42,15 +38,6 @@ public class Usuario {
     public void setFaculdade(String faculdade) {
         this.faculdade = faculdade;
     }
-    public Date getDataNascimento() {
-        return dataNascimento;
-    }
-    public void setDataNascimento(Date dataNascimento) {
-        this.dataNascimento = dataNascimento;
-    }
-    public int getIdade() {
-        return idade;
-    }
 
     public ArrayList<Materia> getListaMaterias() {
         return listaMaterias;
@@ -63,7 +50,14 @@ public class Usuario {
         this.senha = senha;
     }
 
-    //Funções
+    public String getCurso () {
+        return curso;
+    }
+
+    public void setCurso(String curso) {
+        this.curso = curso;
+    }
+
     public boolean addMateria(Materia materia) {
         try{
             listaMaterias.add(materia);
@@ -80,12 +74,5 @@ public class Usuario {
         } catch (Exception e) {
             return false;
         }
-    }
-
-    private int calcIdade (Date dataNascimento) {
-        Date now = new Date();
-        long diffInMillies = Math.abs(now.getTime() - dataNascimento.getTime());
-        long diff = TimeUnit.DAYS.convert(diffInMillies, TimeUnit.MILLISECONDS);
-        return (int) diff/365;
     }
 }
