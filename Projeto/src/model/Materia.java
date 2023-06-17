@@ -20,8 +20,8 @@ public class Materia {
         this.faltas = faltas;
         this.creditos = creditos;
         this.tipoMedia = tipoMedia;
-        this.mediaAtual = calcMediaAtual();
         listaAvaliacoes = new ArrayList<Avaliacao>();
+        this.mediaAtual = calcMediaAtual();
     }
 
     //Getters
