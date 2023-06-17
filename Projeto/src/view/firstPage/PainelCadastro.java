@@ -1,4 +1,4 @@
-package view;
+package view.firstPage;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -10,6 +10,8 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import controller.Cadastro;
+import view.LabelIndicacao;
+import view.Utilidades;
 
 public class PainelCadastro extends JPanel implements ActionListener {
     //Cores

@@ -1,14 +1,14 @@
 package model;
-import java.util.Date;
 
-public abstract class Avaliacoes {
+public class Avaliacao {
     private Materia materia;
     private String nome;
-    private Date data;
+    private String data;
     private double nota;
     private double pesoNaMedia;
+    private String extraInfo;
 
-    public Avaliacoes(String nome, Date data, Materia materia) {
+    public Avaliacao(String nome, String data, Materia materia) {
         this.nome = nome;
         this.data = data;
         this.materia = materia;
@@ -23,11 +23,11 @@ public abstract class Avaliacoes {
         this.nome = nome;
     }
 
-    public Date getData() {
+    public String getData() {
         return data;
     }
 
-    public void setData(Date data) {
+    public void setData(String data) {
         this.data = data;
     }
 
@@ -47,5 +47,13 @@ public abstract class Avaliacoes {
 
     public void setPesoNaMedia(double pesoNaMedia) {
         this.pesoNaMedia = pesoNaMedia;
+    }
+
+    public String getExtraInfo() {
+        return extraInfo;
+    }
+
+    public void setExtraInfo(String extraInfo) {
+        this.extraInfo = extraInfo;
     }
 }

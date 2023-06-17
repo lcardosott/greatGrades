@@ -1,4 +1,4 @@
-package view;
+package view.firstPage;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.FontFormatException;
@@ -6,12 +6,15 @@ import java.io.File;
 import java.io.IOException;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 import javax.swing.border.Border;
 
-public class FrameInicial extends JFrame {
+import view.LabelIndicacao;
+import view.Utilidades;
+import view.originFrame;
+
+public class FrameInicial extends originFrame {
     public FrameInicial() {
         //Colors
 
@@ -21,7 +24,7 @@ public class FrameInicial extends JFrame {
             fonte = Font.createFont(Font.TRUETYPE_FONT,new File("Fontes/Sacramento-Regular.ttf")).deriveFont(Font.PLAIN, 50);
         } catch (FontFormatException|IOException e) {
             System.err.println("Erro ao carregar fonte");
-            e.printStackTrace();  
+            e.printStackTrace();
         }
 
         //Imagens
@@ -75,18 +78,12 @@ public class FrameInicial extends JFrame {
         painelDireita.add(labelFundo);
         
         //Default settings
-        this.setSize(Utilidades.redimensionarFrameTotal());
-        this.setIconImage(logo.getImage());
-        this.setResizable(false);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setTitle("Great Grades");
-        this.setVisible(true);
-        this.setLayout(null); //positions defined explicitly by the programmer
-        this.setIconImage(logo.getImage());
         this.getContentPane().setBackground(Color.GRAY);
 
         //Adicionando Paineis
         this.add(painelEsquerda);
         this.add(painelDireita);
+
+        this.setVisible(true);
     }
 }

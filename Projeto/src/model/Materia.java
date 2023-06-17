@@ -5,8 +5,7 @@ public class Materia {
     private String nome;
     private String turma;
     private String nomeProfessor;
-    private ArrayList<Prova> listaProvas;
-    private ArrayList<Trabalho> listaTrabalhos;
+    private ArrayList<Avaliacao> listaAvaliacoes;
     private double notaMinima; //nota minima para aprovação
     private int creditos;
     private int faltas; //quantas vezes o aluno já faltou nas aulas da disciplina
@@ -22,8 +21,7 @@ public class Materia {
         this.creditos = creditos;
         this.tipoMedia = tipoMedia;
         this.mediaAtual = calcMediaAtual();
-        listaProvas = new ArrayList<Prova>();
-        listaTrabalhos = new ArrayList<Trabalho>();
+        listaAvaliacoes = new ArrayList<Avaliacao>();
     }
 
     //Getters
@@ -55,12 +53,8 @@ public class Materia {
         return tipoMedia;
     }
 
-    public ArrayList<Prova> getListaProvas() {
-        return listaProvas;
-    }
-
-    public ArrayList<Trabalho> getListaTrabalho() {
-        return listaTrabalhos;
+    public ArrayList<Avaliacao> getListaAvaliacoes() {
+        return listaAvaliacoes;
     }
 
     
@@ -97,64 +91,47 @@ public class Materia {
 
     private double calcMediaAritmeticaSimples (int N) {
         double soma = 0;
-        for (Prova prova : listaProvas) {
-            soma += prova.getNota();
-        }
-        for (Trabalho trabalho : listaTrabalhos) {
-            soma += trabalho.getNota();
+        for (Avaliacao avalicao : listaAvaliacoes) {
+            soma += avalicao.getNota();
         }
         return soma/N;
     }
 
     private double calcMediaPonderada (int N) {
         double soma = 0;
-        for (Prova prova : listaProvas) {
-            soma += prova.getNota() * prova.getPesoNaMedia();
+        for (Avaliacao avalicao : listaAvaliacoes) {
+            soma += avalicao.getNota() * avalicao.getPesoNaMedia();
         }
-
-        for (Trabalho trabalho : listaTrabalhos) {
-            soma += trabalho.getNota() * trabalho.getPesoNaMedia();
-        }
-        
         return soma/N;
     }
 
     private double calcMediaHarmonica (int N) {
         double soma = 0;
-        for (Trabalho trabalho : listaTrabalhos) {
-            soma += (double) 1/trabalho.getNota();
-        }
-        for (Prova prova : listaProvas) {
-            soma += (double) 1/prova.getNota();
+        for (Avaliacao avalicao : listaAvaliacoes) {
+            soma += (double) 1/avalicao.getNota();
         }
         return N/soma;
     }
 
     private double calcMediaGeometrica (int N) {
         double multiplicacao = 0;
-        for (Trabalho trabalho : listaTrabalhos) {
-            multiplicacao *= trabalho.getNota();
-        }
-        for (Prova prova : listaProvas) {
-            multiplicacao *= prova.getNota();
+        for (Avaliacao avalicao : listaAvaliacoes) {
+            multiplicacao *= avalicao.getNota();
         }
         return Math.pow(multiplicacao, (double) 1/N);
     }
 
     private double calcMediaQuadratica (int N) {
         double soma = 0;
-        for (Trabalho trabalho : listaTrabalhos) {
-            soma += (double) Math.pow(trabalho.getNota(), 2);
-        }
-        for (Prova prova : listaProvas) {
-            soma += (double) Math.pow(prova.getNota(), 2);
+        for (Avaliacao avalicao : listaAvaliacoes) {
+            soma += (double) Math.pow(avalicao.getNota(), 2);
         }
         return (double) Math.sqrt((double) soma/N);
     }
 
     public double calcMediaAtual () {
         //calcula a média atual do aluno na matéria em questão
-        int N = listaProvas.size() + listaTrabalhos.size();
+        int N = listaAvaliacoes.size();
         if (tipoMedia == Medias.MEDIA_ARITMETICA_SIMPLES.getValue()) {
             mediaAtual = calcMediaAritmeticaSimples(N);
             return mediaAtual;
@@ -195,36 +172,18 @@ public class Materia {
         return calcNumFaltasMax() - faltas;
     }
 
-    public boolean addProva(Prova prova) {
+    public boolean addAvaliacao(Avaliacao avalicao) {
         try{
-            listaProvas.add(prova);
+            listaAvaliacoes.add(avalicao);
             return true;
         } catch(Exception e) {
             return false;
         }
     }
 
-    public boolean removerProva(Prova prova) {
+    public boolean removerAvaliacao(Avaliacao avalicao) {
         try {
-            listaProvas.remove(prova);
-            return true;
-        } catch(Exception e) {
-            return false;
-        }
-    }
-
-    public boolean addTrabalho(Trabalho trabalho) {
-        try{
-            listaTrabalhos.add(trabalho);
-            return true;
-        } catch(Exception e) {
-            return false;
-        }
-    }
-
-    public boolean removerTrabalho (Trabalho trabalho) {
-        try {
-            listaTrabalhos.remove(trabalho);
+            listaAvaliacoes.remove(avalicao);
             return true;
         } catch(Exception e) {
             return false;
