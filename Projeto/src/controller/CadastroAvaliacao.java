@@ -2,12 +2,12 @@ package controller;
 import javax.swing.JOptionPane;
 
 import model.Avaliacao;
-import model.Materia;
+import model.InterfaceMateria;
 
 public class CadastroAvaliacao {
     private Avaliacao avaliacao;
     
-    public CadastroAvaliacao(String nome, String data, String nota, String pesoNaMedia, String extraInfo, Materia materia) {
+    public CadastroAvaliacao(String nome, String data, String nota, String pesoNaMedia, String extraInfo, InterfaceMateria materia) {
         double notaDouble = 0;
         double pesoNaMediaDouble = 0;
         boolean checkNota = false;
