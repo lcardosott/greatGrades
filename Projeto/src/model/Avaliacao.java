@@ -8,9 +8,12 @@ public class Avaliacao {
     private double pesoNaMedia;
     private String extraInfo;
 
-    public Avaliacao(String nome, String data, Materia materia) {
+    public Avaliacao(String nome, String data, double nota, double pesoNaMedia, String extraInfo, Materia materia) {
         this.nome = nome;
         this.data = data;
+        this.nota = nota;
+        this.pesoNaMedia = pesoNaMedia;
+        this.extraInfo = extraInfo;
         this.materia = materia;
     }
 
@@ -25,6 +28,14 @@ public class Avaliacao {
 
     public String getData() {
         return data;
+    }
+
+    public Materia getMateria() {
+        return materia;
+    }
+
+    public void setMateria(Materia materia) {
+        this.materia = materia;
     }
 
     public void setData(String data) {

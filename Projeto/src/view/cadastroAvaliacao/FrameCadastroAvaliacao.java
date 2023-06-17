@@ -10,6 +10,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import controller.CadastroAvaliacao;
 import model.Materia;
 import view.LabelIndicacao;
 import view.Utilidades;
@@ -18,15 +19,17 @@ import view.originFrame;
 public class FrameCadastroAvaliacao extends originFrame implements ActionListener{
     private Color roxo = new Color(0xFDB5ED);
     private ImageIcon fundo = new ImageIcon("imagens/fundo.png");
-    private BotaoCadastroAvaliacao botaoCadastroProva;
+    private BotaoCadastroAvaliacao BotaoCadastroAvaliacao;
     private JTextField nome;
     private JTextField dataEntrega;
     private JTextField nota;
     private JTextField pesoNaMedia;
     private JTextField extraInfo;
+    private Materia materia;
     
     public FrameCadastroAvaliacao(Materia materia) {
         JPanel painel = new JPanel();
+        this.materia = materia;
 
         painel.setBackground(roxo);
         painel.setLayout(null);
@@ -44,14 +47,14 @@ public class FrameCadastroAvaliacao extends originFrame implements ActionListene
         nome.setBounds(70, 100, 320, 35);
 
         //Data de entrega
-        LabelIndicacao labelDataEntrega = new LabelIndicacao("Data de entrega:", new Font("Arial",Font.BOLD,20), roxo);
+        LabelIndicacao labelDataEntrega = new LabelIndicacao("Data:", new Font("Arial",Font.BOLD,20), roxo);
         labelDataEntrega.setBounds(70, 140 ,300,20);
         dataEntrega = new JTextField();
         dataEntrega.setBounds(70, 160, 320, 35);
 
         //Nota
         LabelIndicacao labelNota = new LabelIndicacao("Nota:", new Font("Arial",Font.BOLD,20), roxo);
-        labelNota.setBounds(70, 200,100 ,20);
+        labelNota.setBounds(70, 200,300 ,20);
         nota = new JTextField();
         nota.setBounds(70, 220, 320, 35);
 
@@ -68,8 +71,8 @@ public class FrameCadastroAvaliacao extends originFrame implements ActionListene
         extraInfo.setBounds(70, 340, 320, 35);
 
         //Botão de cadastro
-        botaoCadastroProva = new BotaoCadastroAvaliacao();
-        botaoCadastroProva.addActionListener(this);
+        BotaoCadastroAvaliacao = new BotaoCadastroAvaliacao();
+        BotaoCadastroAvaliacao.addActionListener(this);
 
         //Label que carrega o fundo
         JLabel labelFundo = new JLabel();
@@ -97,19 +100,22 @@ public class FrameCadastroAvaliacao extends originFrame implements ActionListene
         painel.add(labelExtraInfo);
         painel.add(extraInfo);
         //Botão
-        painel.add(botaoCadastroProva);
+        painel.add(BotaoCadastroAvaliacao);
         //Visibilidade
         this.setVisible(true);
-        botaoCadastroProva.setVisible(true);
+        BotaoCadastroAvaliacao.setVisible(true);
         this.add(painel);
         this.add(labelFundo);
     }
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == botaoCadastroProva) {
-            //String n = nome.getText();
-            //String s = dataEntrega.getText();
-            //new Login(u, s);
+        if (e.getSource() == BotaoCadastroAvaliacao) {
+            String nomeStr = nome.getText();
+            String dataStr = dataEntrega.getText();
+            String notaStr = nota.getText();
+            String pesoNaMediaStr = pesoNaMedia.getText();
+            String extraInfoStr = extraInfo.getText();
+            new CadastroAvaliacao(nomeStr, dataStr, notaStr, pesoNaMediaStr, extraInfoStr, materia);
         }
     }
 }
