@@ -77,4 +77,9 @@ public class Verificar {
             return false;
         }
     }
+
+    public static boolean validaNome (String nome) {
+        return nome.matches("^[a-zA-ZÀ-ę ]*$");
+    }
+    
 }
