@@ -11,10 +11,10 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import controller.CadastroAvaliacao;
-import model.Materia;
-import view.LabelIndicacao;
-import view.Utilidades;
-import view.originFrame;
+import model.InterfaceMateria;
+import view.baseClasses.LabelIndicacao;
+import view.baseClasses.Utilidades;
+import view.baseClasses.originFrame;
 
 public class FrameCadastroAvaliacao extends originFrame implements ActionListener{
     private Color roxo = new Color(0xFDB5ED);
@@ -25,9 +25,9 @@ public class FrameCadastroAvaliacao extends originFrame implements ActionListene
     private JTextField nota;
     private JTextField pesoNaMedia;
     private JTextField extraInfo;
-    private Materia materia;
+    private InterfaceMateria materia;
     
-    public FrameCadastroAvaliacao(Materia materia) {
+    public FrameCadastroAvaliacao(InterfaceMateria materia) {
         JPanel painel = new JPanel();
         this.materia = materia;
 

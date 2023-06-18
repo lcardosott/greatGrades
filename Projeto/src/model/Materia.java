@@ -1,7 +1,7 @@
 package model;
 import java.util.ArrayList;
 
-public class Materia {
+public class Materia implements InterfaceMateria {
     private String nome;
     private String turma;
     private String nomeProfessor;
@@ -21,68 +21,87 @@ public class Materia {
         this.creditos = creditos;
         this.tipoMedia = tipoMedia;
         listaAvaliacoes = new ArrayList<Avaliacao>();
-        this.mediaAtual = calcMediaAtual();
+        this.mediaAtual = 0;
     }
 
     //Getters
+    @Override
     public String getNome() {
         return nome;
     }
 
+    @Override
     public String getTurma() {
         return turma;
     }
 
+    @Override
     public String getNomeProfessor() {
         return nomeProfessor;
     }
 
+    @Override
     public double getNotaMinima() {
         return notaMinima;
     }
 
+    @Override
     public int getCreditos() {
         return creditos;
     }
 
+        @Override
         public int getFaltas() {
         return faltas;
     }
 
+    @Override
     public int getTipoMedia() {
         return tipoMedia;
     }
 
+    @Override
     public ArrayList<Avaliacao> getListaAvaliacoes() {
         return listaAvaliacoes;
     }
 
+    public double getMediaAtual() {
+        return mediaAtual;
+    }
+
     
     //Setters
+    @Override
     public void setNome(String nome) {
         this.nome = nome;
     }
 
+    @Override
     public void setTurma(String turma) {
         this.turma = turma;
     }
 
+    @Override
     public void setNomeProfessor(String nomeProfessor) {
         this.nomeProfessor = nomeProfessor;
     }
 
+    @Override
     public void setNotaMinima(double notaMinima) {
         this.notaMinima = notaMinima;
     }
 
+    @Override
     public void setCreditos(int creditos) {
         this.creditos = creditos;
     }
 
+    @Override
     public void setFaltas(int faltas) {
         this.faltas = faltas;
     }
 
+    @Override
     public void setTipoMedia(int tipoMedia) {
         this.tipoMedia = tipoMedia;
     }
@@ -129,6 +148,7 @@ public class Materia {
         return (double) Math.sqrt((double) soma/N);
     }
 
+    @Override
     public double calcMediaAtual () {
         //calcula a média atual do aluno na matéria em questão
         int N = listaAvaliacoes.size();
@@ -154,6 +174,7 @@ public class Materia {
         }
         
     }
+    @Override
     public boolean jaPassou() {
         //verifica se, com a média atual, o aluno já foi aprovado na matéria.
         if (mediaAtual >= notaMinima) {
@@ -162,16 +183,19 @@ public class Materia {
         return false;
     }
 
+    @Override
     public int calcNumFaltasMax () {
         //calcula o número máximo de vezes que o estudante pode faltar na matéria
         return 2*creditos - 1;
     }
 
+    @Override
     public int calcNumFaltasRestantes () {
         //calcula quantas vezes o estudantes ainda pode faltar na matéria
         return calcNumFaltasMax() - faltas;
     }
 
+    @Override
     public boolean addAvaliacao(Avaliacao avalicao) {
         try{
             listaAvaliacoes.add(avalicao);
@@ -181,6 +205,7 @@ public class Materia {
         }
     }
 
+    @Override
     public boolean removerAvaliacao(Avaliacao avalicao) {
         try {
             listaAvaliacoes.remove(avalicao);
