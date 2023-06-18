@@ -56,7 +56,7 @@ public class FrameVerMateria extends originFrame {
         LabelIndicacao labelFaltasRestantes = new LabelIndicacao("Faltas restantes: " + materia.calcNumFaltasRestantes(), new Font("Arial",Font.BOLD,20), roxo);
         labelFaltasRestantes.setBounds(70, 200,500 ,50);
 
-        //Avaliações - O que fazer?
+        //Avaliações - O que fazer? Criar uma tela para visualizar uma avaliação?
         if (materia.getListaAvaliacoes().size() > 0) {
             LabelIndicacao labelAvaliacoes = new LabelIndicacao("Avaliações: " + materia.calcNumFaltasRestantes(), new Font("Arial",Font.BOLD,20), roxo);
             labelAvaliacoes.setBounds(70, 200,500 ,50);
