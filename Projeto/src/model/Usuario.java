@@ -67,7 +67,7 @@ public class Usuario {
         }
     }
 
-    public boolean removeMateria(Materia materia) {
+    public boolean removeMateria(InterfaceMateria materia) {
         try {
             listaMaterias.remove(materia);
             return true;

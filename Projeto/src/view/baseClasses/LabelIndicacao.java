@@ -1,4 +1,4 @@
-package view;
+package view.baseClasses;
 import java.awt.Color;
 import java.awt.Font;
 

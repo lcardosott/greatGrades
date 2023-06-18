@@ -10,9 +10,9 @@ import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 import javax.swing.border.Border;
 
-import view.LabelIndicacao;
-import view.Utilidades;
-import view.originFrame;
+import view.baseClasses.LabelIndicacao;
+import view.baseClasses.Utilidades;
+import view.baseClasses.originFrame;
 
 public class FrameInicial extends originFrame {
     public FrameInicial() {

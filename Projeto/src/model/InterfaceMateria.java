@@ -18,6 +18,8 @@ public interface InterfaceMateria {
 
     int getTipoMedia();
 
+    double getMediaAtual();
+
     ArrayList<Avaliacao> getListaAvaliacoes();
 
     void setNome(String nome);

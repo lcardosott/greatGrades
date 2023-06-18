@@ -8,9 +8,9 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import model.Usuario;
-import view.LabelIndicacao;
-import view.Utilidades;
-import view.originFrame;
+import view.baseClasses.LabelIndicacao;
+import view.baseClasses.Utilidades;
+import view.baseClasses.originFrame;
 
 public class FrameUsuario extends originFrame {
     private Color roxo = new Color(0xFDB5ED);

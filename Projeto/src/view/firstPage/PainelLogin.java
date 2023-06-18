@@ -8,8 +8,8 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import controller.Login;
-import view.LabelIndicacao;
-import view.Utilidades;
+import view.baseClasses.LabelIndicacao;
+import view.baseClasses.Utilidades;
 
 public class PainelLogin extends JPanel implements ActionListener{
     //Cores
