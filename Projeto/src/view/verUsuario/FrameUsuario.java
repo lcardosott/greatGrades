@@ -10,10 +10,14 @@ import javax.swing.JPanel;
 import model.Usuario;
 import view.baseClasses.LabelIndicacao;
 import view.baseClasses.Utilidades;
-import view.baseClasses.originFrame;
+import view.baseClasses.OriginFrame;
 
-public class FrameUsuario extends originFrame {
-    private Color roxo = new Color(0xFDB5ED);
+public class FrameUsuario extends OriginFrame {
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private Color roxo = new Color(0xFDB5ED);
     private ImageIcon fundo = new ImageIcon("imagens/fundo.png");
     
     public FrameUsuario(Usuario user) {
