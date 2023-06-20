@@ -9,10 +9,10 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import model.Materia;
 import view.baseClasses.LabelIndicacao;
+import view.baseClasses.OriginFrame;
 import view.baseClasses.Utilidades;
-import view.baseClasses.originFrame;
 
-public class FrameVerMateria extends originFrame {
+public class FrameVerMateria extends OriginFrame {
     private Color roxo = new Color(0xFDB5ED);
     private ImageIcon fundo = new ImageIcon("imagens/fundo.png");
     

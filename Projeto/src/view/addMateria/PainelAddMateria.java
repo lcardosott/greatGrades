@@ -84,7 +84,6 @@ import model.*;
 			this.setBackground(Color.pink);
 			this.setLayout(new FlowLayout(FlowLayout.CENTER));
 			this.setBounds((Utilidades.dimensoesProporçãoLargura(0.6)-500)/2, (Utilidades.dimensoesProporçãoAltura(1)-500)/2, 500, 460);
-			
 			// Adds
 			this.add(labelNome);
 			this.add(fieldNome);
