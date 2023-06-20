@@ -23,7 +23,7 @@ public class Cadastro {
             String header = "USER, NOME, INSTITUICAO, CURSO, SENHA\n"; 
             String conteudo = user.getUsuario() + "," + user.getNome() + "," + user.getFaculdade() + "," + user.getCurso() + "," + user.getSenha() + "\n";
             try {
-                if (!usersCSV.exists()) {
+                if (!usersCSV.exists()) {;
                     usersCSV.createNewFile();
                     FileWriter fw = new FileWriter(usersCSV, true);
                     try (BufferedWriter bw = new BufferedWriter(fw)) {

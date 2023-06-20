@@ -57,8 +57,6 @@ public class FrameInicial extends OriginFrame {
         painelEsquerda.add(painelLogin);
         painelEsquerda.add(greatGrades);
         
-
-
         JLayeredPane painelDireita = new JLayeredPane();
         painelDireita.setBackground(Color.white);
         painelDireita.setBounds(Utilidades.dimensoesProporçãoLargura(0.4)+1,0, Utilidades.dimensoesProporçãoLargura(0.6),Utilidades.dimensoesProporçãoAltura(1));
@@ -83,7 +81,7 @@ public class FrameInicial extends OriginFrame {
         //Adicionando Paineis
         this.add(painelEsquerda);
         this.add(painelDireita);
-        this.setLayout(null);
+        //this.setLayout(null);
         this.setVisible(true);
     }
 }
