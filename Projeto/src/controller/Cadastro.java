@@ -1,10 +1,6 @@
 package controller;
-import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.ArrayList;
-import javax.swing.JOptionPane;
 import model.Usuario;
 
 public class Cadastro {
@@ -22,28 +18,7 @@ public class Cadastro {
             File usersCSV = new File("Projeto/src/controller/Files/Users.csv");
             String header = "USER, NOME, INSTITUICAO, CURSO, SENHA\n"; 
             String conteudo = user.getUsuario() + "," + user.getNome() + "," + user.getFaculdade() + "," + user.getCurso() + "," + user.getSenha() + "\n";
-            try {
-                if (!usersCSV.exists()) {;
-                    usersCSV.createNewFile();
-                    FileWriter fw = new FileWriter(usersCSV, true);
-                    try (BufferedWriter bw = new BufferedWriter(fw)) {
-                        bw.write(header);
-                        bw.write(conteudo);
-                    }
-                    JOptionPane.showMessageDialog(null, "Cadastro realizado com sucesso!", "Bem vindo!", JOptionPane.PLAIN_MESSAGE);
-                }
-                
-                else { //arquivo já existe
-                    FileWriter fw = new FileWriter(usersCSV, true);
-                    try (BufferedWriter bw = new BufferedWriter(fw)) {
-                        bw.write(conteudo);
-                    }
-                    JOptionPane.showMessageDialog(null, "Cadastro realizado com sucesso!", "Bem vindo!", JOptionPane.PLAIN_MESSAGE);
-                }
-            } catch (IOException e) {
-                JOptionPane.showMessageDialog(null, "Ocorreu um erro inesperado :(", "Erro na montagem de arquivo", JOptionPane.ERROR_MESSAGE);
-                System.out.println(e);
-            }
+            OriginFile.dealWithFile(usersCSV, header, conteudo);
         }
     }
 

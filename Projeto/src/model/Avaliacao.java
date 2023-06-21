@@ -1,14 +1,14 @@
 package model;
 
-public class Avaliacao {
-    private InterfaceMateria materia;
+public abstract class Avaliacao {
+    private Materia materia;
     private String nome;
     private String data;
     private double nota;
     private double pesoNaMedia;
     private String extraInfo;
 
-    public Avaliacao(String nome, String data, double nota, double pesoNaMedia, String extraInfo, InterfaceMateria materia) {
+    public Avaliacao(String nome, String data, double nota, double pesoNaMedia, String extraInfo, Materia materia) {
         this.nome = nome;
         this.data = data;
         this.nota = nota;
@@ -34,7 +34,7 @@ public class Avaliacao {
         return materia;
     }
 
-    public void setMateria(InterfaceMateria materia) {
+    public void setMateria(Materia materia) {
         this.materia = materia;
     }
 

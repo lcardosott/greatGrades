@@ -1,0 +1,7 @@
+USER, NOME_MATERIA, TURMA, NOME_PROFESSOR, NOTA_MINIMA, NUMERO_CREDITOS, NUMERO_FALTAS, TIPO_MÉDIA
+user,materia,turma,nome,5.0,1,0,1
+user,nome,a,prof,10.0,1,0,1
+user,oi,a,nome,1.0,1,0,1
+user,oii,a,nome,1.0,1,0,1
+user,oiiii,a,n,1.0,110,0,1
+user,oiiiii,a,n,1.0,110,0,1

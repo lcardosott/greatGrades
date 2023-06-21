@@ -1,14 +1,8 @@
 package view.menuprincipal;
 
 import java.awt.Color;
-import java.awt.Font;
-import java.awt.FontFormatException;
-import java.io.File;
-import java.io.IOException;
-
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
-import javax.swing.JPanel;
 import view.baseClasses.Utilidades;
 
 public class FramePrincipal extends JFrame {
