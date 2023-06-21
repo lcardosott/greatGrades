@@ -1,13 +1,12 @@
 package controller;
-
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-
 import javax.swing.JOptionPane;
 
-public class originFile {
+public class OriginFile {
+    
     public static void dealWithFile(File file, String header, String conteudo) {
         try {
             if (!file.exists()) {

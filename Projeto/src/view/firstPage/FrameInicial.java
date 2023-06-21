@@ -11,13 +11,12 @@ import javax.swing.JLayeredPane;
 import javax.swing.border.Border;
 
 import view.baseClasses.LabelIndicacao;
+import view.baseClasses.OriginFrame;
 import view.baseClasses.Utilidades;
-import view.baseClasses.originFrame;
 
-public class FrameInicial extends originFrame {
+public class FrameInicial extends OriginFrame {
     public FrameInicial() {
         //Colors
-
         //Fonte
         Font fonte = new Font("Arial", Font.PLAIN, 20);
         try {
@@ -58,8 +57,6 @@ public class FrameInicial extends originFrame {
         painelEsquerda.add(painelLogin);
         painelEsquerda.add(greatGrades);
         
-
-
         JLayeredPane painelDireita = new JLayeredPane();
         painelDireita.setBackground(Color.white);
         painelDireita.setBounds(Utilidades.dimensoesProporçãoLargura(0.4)+1,0, Utilidades.dimensoesProporçãoLargura(0.6),Utilidades.dimensoesProporçãoAltura(1));
@@ -68,6 +65,7 @@ public class FrameInicial extends originFrame {
         PainelCadastro painelCadastro = new PainelCadastro(this);
 
         //Label que carrega o fundo
+        
         JLabel labelFundo = new JLabel();
         labelFundo.setBackground(Color.WHITE);
         labelFundo.setIcon(fundo);
@@ -83,7 +81,7 @@ public class FrameInicial extends originFrame {
         //Adicionando Paineis
         this.add(painelEsquerda);
         this.add(painelDireita);
-
+        //this.setLayout(null);
         this.setVisible(true);
     }
 }

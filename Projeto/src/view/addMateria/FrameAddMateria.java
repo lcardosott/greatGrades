@@ -1,19 +1,18 @@
 package view.addMateria;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import javax.swing.ImageIcon;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import model.Usuario;
-import view.baseClasses.Utilidades;
-import view.baseClasses.originFrame;
-
-public class FrameAddMateria extends originFrame {
+import view.baseClasses.OriginFrame;
+public class FrameAddMateria extends OriginFrame {
 	JPanel painelAddMateria;
-	JLabel labelLogo;
+	JLabel labelFundo;
 	Usuario user;
+	
 	public FrameAddMateria(Usuario user) {
 	///////////// Label logo e fundo ////////////////	
 		this.user = user;
@@ -26,19 +25,14 @@ public class FrameAddMateria extends originFrame {
         labelFundo.setOpaque(true);
         labelFundo.setHorizontalAlignment(JLabel.RIGHT);
         labelFundo.setVerticalAlignment(JLabel.BOTTOM);
-        labelFundo.setVisible(true);
-
-        ///////////// Painel add materia ////////////////
-		painelAddMateria = new PainelAddMateria(user);
+ 
+    ///////////// Painel add materia ////////////////
+        painelAddMateria = new PainelAddMateria(user);
 		
-		/////////// Adds e frame ///////////////////////
-		
-		this.setPreferredSize(Utilidades.redimensionarFrameTotal());
-		this.setResizable(false);
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	/////////// Adds e frame ///////////////////////
+		this.setLayout(new BorderLayout());
 		this.add(painelAddMateria);
-		this.pack();
-		//this.getContentPane().add(super.originLabelFundo);
+		this.add(labelFundo);
 		this.setVisible(true);
 	}
 

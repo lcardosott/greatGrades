@@ -14,9 +14,9 @@ import controller.CadastroAvaliacao;
 import model.Materia;
 import view.baseClasses.LabelIndicacao;
 import view.baseClasses.Utilidades;
-import view.baseClasses.originFrame;
+import view.baseClasses.OriginFrame;
 
-public class FrameCadastroAvaliacao extends originFrame implements ActionListener{
+public class FrameCadastroAvaliacao extends OriginFrame implements ActionListener{
     private Color roxo = new Color(0xFDB5ED);
     private ImageIcon fundo = new ImageIcon("imagens/fundo.png");
     private BotaoCadastroAvaliacao BotaoCadastroAvaliacao;

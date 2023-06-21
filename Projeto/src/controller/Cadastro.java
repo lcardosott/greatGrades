@@ -18,7 +18,7 @@ public class Cadastro {
             File usersCSV = new File("Projeto/src/controller/Files/Users.csv");
             String header = "USER, NOME, INSTITUICAO, CURSO, SENHA\n"; 
             String conteudo = user.getUsuario() + "," + user.getNome() + "," + user.getFaculdade() + "," + user.getCurso() + "," + user.getSenha() + "\n";
-            originFile.dealWithFile(usersCSV, header, conteudo);
+            OriginFile.dealWithFile(usersCSV, header, conteudo);
         }
     }
 
