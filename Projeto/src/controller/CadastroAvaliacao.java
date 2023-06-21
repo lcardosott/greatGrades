@@ -29,7 +29,7 @@ public class CadastroAvaliacao {
             JOptionPane.showMessageDialog(null, "O campo 'Peso na média' deve necessariamente ser um número.\nUse '.' para separar as casas decimais.", "Campo inadequado!", JOptionPane.ERROR_MESSAGE);
         }
         if (checkNota && checkPesoNaMedia) {
-            avaliacao = new Avaliacao(nome, data, notaDouble, pesoNaMediaDouble, extraInfo, materia);
+            //avaliacao = new Avaliacao(nome, data, notaDouble, pesoNaMediaDouble, extraInfo, materia);
             materia.addAvaliacao(avaliacao);
             //Arquvio
             File avaliacoesCSV = new File("Projeto/src/controller/Files/Avaliacoes.csv");

@@ -1,6 +1,6 @@
 package model;
 
-public class Avaliacao {
+public abstract class Avaliacao {
     private Materia materia;
     private String nome;
     private String data;

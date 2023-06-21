@@ -25,7 +25,7 @@ public class FrameAddMateria extends OriginFrame {
         labelFundo.setOpaque(true);
         labelFundo.setHorizontalAlignment(JLabel.RIGHT);
         labelFundo.setVerticalAlignment(JLabel.BOTTOM);
- 
+
     ///////////// Painel add materia ////////////////
         painelAddMateria = new PainelAddMateria(user);
 		
