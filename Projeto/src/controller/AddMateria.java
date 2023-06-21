@@ -26,7 +26,7 @@ public class AddMateria {
 				continuar = false;
 				JOptionPane.showMessageDialog(null, "\"Nota mínima\" deve ser um número", "Aviso", JOptionPane.WARNING_MESSAGE);
 			}
-			if (!Verificar.materiaJaExiste(nomeMateria, user.getUsuario())) {
+			if (Verificar.materiaJaExiste(nomeMateria, user.getUsuario())) {
 				continuar = false;
 			}
 		}
