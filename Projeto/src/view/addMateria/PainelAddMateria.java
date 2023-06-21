@@ -8,14 +8,12 @@ import java.awt.event.ActionListener;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.Border;
 import view.baseClasses.*;
 import controller.*;
 import model.*;
-
 
 	public class PainelAddMateria extends JPanel implements ActionListener{
 		/**
@@ -26,7 +24,7 @@ import model.*;
 		JTextField fieldNome = new JTextField();
 		JTextField fieldTurma = new JTextField();
 		JTextField fieldNomeProfessor = new JTextField();
-		JComboBox fieldTipoMedia;
+		JComboBox<String> fieldTipoMedia;
 		JTextField fieldCreditos = new JTextField();
 		JTextField fieldNotaMinima = new JTextField();
 		Usuario user;
@@ -66,7 +64,7 @@ import model.*;
 			// ComboBox //
 			LabelIndicacao labelTipoMedia = new LabelIndicacao("Tipo de média ", fonteAcimaFields, Color.pink);
 			String[] opcoesMedia = {"Aritmética","Ponderada","Harmônica","Geométrica","Quadrática"};
-			fieldTipoMedia = new JComboBox(opcoesMedia);
+			fieldTipoMedia = new JComboBox<>(opcoesMedia);
 			fieldTipoMedia.setFont(fonteFields);
 			fieldTipoMedia.setFocusable(false);
 			

@@ -2,6 +2,7 @@ package model;
 import java.util.ArrayList;
 
 public class Materia implements InterfaceMateria {
+    private Usuario user;
     private String nome;
     private String turma;
     private String nomeProfessor;
@@ -12,7 +13,7 @@ public class Materia implements InterfaceMateria {
     private int tipoMedia;
     private double mediaAtual;
 
-    public Materia (String nome, String turma, String nomeProfessor, double notaMinima, int creditos, int faltas, int tipoMedia) {
+    public Materia (String nome, String turma, String nomeProfessor, double notaMinima, int creditos, int faltas, int tipoMedia, Usuario user) {
         this.nome = nome;
         this.turma = turma;
         this.nomeProfessor = nomeProfessor;
@@ -21,6 +22,7 @@ public class Materia implements InterfaceMateria {
         this.creditos = creditos;
         this.tipoMedia = tipoMedia;
         listaAvaliacoes = new ArrayList<Avaliacao>();
+        this.user = user;
         this.mediaAtual = 0;
     }
 
@@ -33,6 +35,10 @@ public class Materia implements InterfaceMateria {
     @Override
     public String getTurma() {
         return turma;
+    }
+
+    public Usuario getUser() {
+        return user;
     }
 
     @Override

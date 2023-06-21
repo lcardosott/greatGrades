@@ -11,7 +11,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import controller.CadastroAvaliacao;
-import model.InterfaceMateria;
+import model.Materia;
 import view.baseClasses.LabelIndicacao;
 import view.baseClasses.Utilidades;
 import view.baseClasses.originFrame;
@@ -25,9 +25,9 @@ public class FrameCadastroAvaliacao extends originFrame implements ActionListene
     private JTextField nota;
     private JTextField pesoNaMedia;
     private JTextField extraInfo;
-    private InterfaceMateria materia;
+    private Materia materia;
     
-    public FrameCadastroAvaliacao(InterfaceMateria materia) {
+    public FrameCadastroAvaliacao(Materia materia) {
         JPanel painel = new JPanel();
         this.materia = materia;
 
@@ -106,6 +106,7 @@ public class FrameCadastroAvaliacao extends originFrame implements ActionListene
         BotaoCadastroAvaliacao.setVisible(true);
         this.add(painel);
         this.add(labelFundo);
+        this.getContentPane().setBackground(Color.WHITE);
     }
     @Override
     public void actionPerformed(ActionEvent e) {
