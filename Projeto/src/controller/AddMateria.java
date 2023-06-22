@@ -38,7 +38,7 @@ public class AddMateria {
 			user.addMateria(mat);
 			//Arquivo para matéria
 			File materiasCSV = new File("Projeto/src/controller/Files/Materias.csv");
-            String header = "USER, NOME_MATERIA, TURMA, NOME_PROFESSOR, NOTA_MINIMA, NUMERO_CREDITOS, NUMERO_FALTAS, TIPO_MEDIA\n"; 
+            String header = "USER,NOME_MATERIA,TURMA,NOME_PROFESSOR,NOTA_MINIMA,NUMERO_CREDITOS,NUMERO_FALTAS,TIPO_MEDIA\n"; 
             String conteudo = user.getUsuario() + "," + mat.getNome() + "," + mat.getTurma() + "," + mat.getNomeProfessor() + "," + mat.getNotaMinima() + "," + mat.getCreditos()+ "," + mat.getFaltas() + "," + mat.getTipoMedia()+ "\n";
 			OriginFile.dealWithFile(materiasCSV, header, conteudo);
 		}

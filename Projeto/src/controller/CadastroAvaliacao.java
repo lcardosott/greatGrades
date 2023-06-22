@@ -33,7 +33,7 @@ public class CadastroAvaliacao {
             materia.addAvaliacao(avaliacao);
             //Arquvio
             File avaliacoesCSV = new File("Projeto/src/controller/Files/Avaliacoes.csv");
-            String header = "USER, NOME_MATERIA, NOME_AVALIACAO, DATA_AVALIACAO, NOTA, PESO_NA_MEDIA, EXTRA_INFO\n"; 
+            String header = "USER,NOME_MATERIA,NOME_AVALIACAO,DATA_AVALIACAO,NOTA,PESO_NA_MEDIA,EXTRA_INFO\n"; 
             String conteudo = materia.getUser().getUsuario() + "," + materia.getNome() + "," + avaliacao.getNome() + "," + avaliacao.getData() + "," + avaliacao.getNota() + "," + avaliacao.getPesoNaMedia()+ "," + avaliacao.getExtraInfo() +"\n";
 			OriginFile.dealWithFile(avaliacoesCSV, header, conteudo);
         }
