@@ -11,11 +11,12 @@ import view.menuprincipal.FramePrincipal;
 
 public class App {  
     public static void main(String[] args) {
-        new FrameInicial();
-        //new FramePrincipal();
+        //new FrameInicial();
+        
         //Materia materia = new Materia("materiatop", "a", "nomeProf", 5, 6, 0, 1);
         //new FrameCadastroAvaliacao(materia);
-        //Usuario user = new Usuario("user", "Caio", "Unicamp", "Eng. Comp.", "senha");
+        Usuario user = new Usuario("user", "Caio", "Unicamp", "Eng. Comp.", "senha");
+        new FramePrincipal(user);
         //new OriginFrame();
         //new FrameUsuario(user);
         //new FrameVerMateria(materia);
