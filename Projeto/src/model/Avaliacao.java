@@ -1,14 +1,14 @@
 package model;
 
-public abstract class Avaliacao {
-    private Materia materia;
+public class Avaliacao {
+    private InterfaceMateria materia;
     private String nome;
     private String data;
     private double nota;
     private double pesoNaMedia;
     private String extraInfo;
 
-    public Avaliacao(String nome, String data, double nota, double pesoNaMedia, String extraInfo, Materia materia) {
+    public Avaliacao(String nome, String data, double nota, double pesoNaMedia, String extraInfo, InterfaceMateria materia) {
         this.nome = nome;
         this.data = data;
         this.nota = nota;
@@ -49,7 +49,7 @@ public abstract class Avaliacao {
     public void setNota(double nota) {
         //altera a nota da avaliação; a média da matéria é recalculada
         this.nota = nota;
-        materia.calcMediaAtual();
+        materia.getMediaAtual();
     }
 
     public double getPesoNaMedia() {
