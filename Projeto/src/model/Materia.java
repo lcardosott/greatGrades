@@ -1,5 +1,6 @@
 package model;
 import java.util.ArrayList;
+import model.CalcMedias.*;
 
 public class Materia implements InterfaceMateria {
     private Usuario user;
@@ -11,7 +12,7 @@ public class Materia implements InterfaceMateria {
     private int creditos;
     private int faltas; //quantas vezes o aluno já faltou nas aulas da disciplina
     private int tipoMedia;
-    private double mediaAtual;
+    private OriginMedia media;
 
     public Materia (String nome, String turma, String nomeProfessor, double notaMinima, int creditos, int faltas, int tipoMedia, Usuario user) {
         this.nome = nome;
@@ -23,7 +24,23 @@ public class Materia implements InterfaceMateria {
         this.tipoMedia = tipoMedia;
         listaAvaliacoes = new ArrayList<Avaliacao>();
         this.user = user;
-        this.mediaAtual = 0;
+        //Setting media
+        if (tipoMedia == Medias.MEDIA_ARITMETICA_SIMPLES.getValue()) {
+            this.media = new MediaAritimetica();
+        }
+        else if (tipoMedia == Medias.MEDIA_PONDERADA.getValue()) {
+            this.media = new MediaPonderada();
+        }
+        else if (tipoMedia == Medias.MEDIA_HARMONICA.getValue()) {
+            this.media = new MediaHarmonica();
+        }
+        else if (tipoMedia == Medias.MEDIA_GEOMETRICA.getValue()) {
+            media = new MediaGeometrica();
+        }
+        else {
+            media = new MediaQuadratica();
+        }
+        media.setListaAvaliacoes(listaAvaliacoes);
     }
 
     //Getters
@@ -72,7 +89,7 @@ public class Materia implements InterfaceMateria {
     }
 
     public double getMediaAtual() {
-        return mediaAtual;
+        return media.calcValor();
     }
 
     
@@ -113,77 +130,10 @@ public class Materia implements InterfaceMateria {
     }
 
     //Funções
-
-    private double calcMediaAritmeticaSimples (int N) {
-        double soma = 0;
-        for (Avaliacao avalicao : listaAvaliacoes) {
-            soma += avalicao.getNota();
-        }
-        return soma/N;
-    }
-
-    private double calcMediaPonderada (int N) {
-        double soma = 0;
-        for (Avaliacao avalicao : listaAvaliacoes) {
-            soma += avalicao.getNota() * avalicao.getPesoNaMedia();
-        }
-        return soma/N;
-    }
-
-    private double calcMediaHarmonica (int N) {
-        double soma = 0;
-        for (Avaliacao avalicao : listaAvaliacoes) {
-            soma += (double) 1/avalicao.getNota();
-        }
-        return N/soma;
-    }
-
-    private double calcMediaGeometrica (int N) {
-        double multiplicacao = 0;
-        for (Avaliacao avalicao : listaAvaliacoes) {
-            multiplicacao *= avalicao.getNota();
-        }
-        return Math.pow(multiplicacao, (double) 1/N);
-    }
-
-    private double calcMediaQuadratica (int N) {
-        double soma = 0;
-        for (Avaliacao avalicao : listaAvaliacoes) {
-            soma += (double) Math.pow(avalicao.getNota(), 2);
-        }
-        return (double) Math.sqrt((double) soma/N);
-    }
-
-    @Override
-    public double calcMediaAtual () {
-        //calcula a média atual do aluno na matéria em questão
-        int N = listaAvaliacoes.size();
-        if (tipoMedia == Medias.MEDIA_ARITMETICA_SIMPLES.getValue()) {
-            mediaAtual = calcMediaAritmeticaSimples(N);
-            return mediaAtual;
-        }
-        else if (tipoMedia == Medias.MEDIA_PONDERADA.getValue()) {
-            mediaAtual = calcMediaPonderada(N);
-            return mediaAtual;
-        }
-        else if (tipoMedia == Medias.MEDIA_HARMONICA.getValue()) {
-            mediaAtual = calcMediaHarmonica(N);
-            return mediaAtual;
-        }
-        else if (tipoMedia == Medias.MEDIA_GEOMETRICA.getValue()) {
-            mediaAtual = calcMediaGeometrica(N);
-            return mediaAtual;
-        }
-        else { 
-            mediaAtual = calcMediaQuadratica(N);
-            return mediaAtual;
-        }
-        
-    }
     @Override
     public boolean jaPassou() {
         //verifica se, com a média atual, o aluno já foi aprovado na matéria.
-        if (mediaAtual >= notaMinima) {
+        if (media.calcValor() >= notaMinima) {
             return true;
         }
         return false;

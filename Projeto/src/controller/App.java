@@ -2,15 +2,15 @@ package controller;
 //import view.firstPage.FrameInicial;
 import model.Materia;
 import model.Usuario;
-import view.addMateria.FrameAddMateria;
 //import view.addMateria.FrameAddMateria;
 import view.cadastroAvaliacao.FrameCadastroAvaliacao;
 import view.firstPage.FrameInicial;
 //import model.Usuario;
-//import view.verMateria.FrameVerMateria;
+import view.verMateria.FrameVerMateria;
 //import view.verUsuario.FrameUsuario;
+import view.firstPage.FrameInicial;
 
-public class App {  
+public class App {
     public static void main(String[] args) {
         
     	new FrameInicial();
