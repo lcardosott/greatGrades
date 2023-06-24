@@ -48,9 +48,9 @@ public class PainelLogin extends JPanel implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == botaoLogin) {
-            String u = usuario.getText();
-            String s = senha.getText();
-            new Login(u, s);
+            String usuarioStr = usuario.getText();
+            String senhaStr = senha.getText();
+            new Login(usuarioStr, senhaStr);
         }
     }
         /*

@@ -38,7 +38,7 @@ public class OriginFile {
             }
         } catch (IOException e) {
             JOptionPane.showMessageDialog(null, "Ocorreu um erro inesperado :(", "Erro na montagem de arquivo", JOptionPane.ERROR_MESSAGE);
-            System.out.println(e);
+            e.printStackTrace();
         }
     }
 }
