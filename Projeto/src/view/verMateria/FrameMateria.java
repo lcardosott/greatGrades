@@ -16,7 +16,6 @@ public class FrameMateria extends OriginFrame{
     public FrameMateria(Materia materia) {
         Color roxo = new Color(0xFDB5ED);
         ImageIcon fundo = new ImageIcon("imagens/fundo.png");
-
         JPanel painel = new JPanel();
         painel.setBackground(roxo);
         painel.setLayout(null);
@@ -71,6 +70,7 @@ public class FrameMateria extends OriginFrame{
 
 
         //Visibilidade
+        this.getContentPane().setBackground(Color.WHITE);
         this.setVisible(true);
         this.add(painel);
         this.add(labelFundo);

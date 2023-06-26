@@ -34,7 +34,7 @@ public class Avaliacao {
         return materia;
     }
 
-    public void setMateria(InterfaceMateria materia) {
+    public void setMateria(Materia materia) {
         this.materia = materia;
     }
 
@@ -49,7 +49,7 @@ public class Avaliacao {
     public void setNota(double nota) {
         //altera a nota da avaliação; a média da matéria é recalculada
         this.nota = nota;
-        materia.calcMediaAtual();
+        materia.getMediaAtual();
     }
 
     public double getPesoNaMedia() {

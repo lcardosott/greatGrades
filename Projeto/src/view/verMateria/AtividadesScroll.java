@@ -1,11 +1,9 @@
 package view.verMateria;
-
 import java.awt.Color;
-
 import javax.swing.JScrollPane;
 import model.Materia;
 import view.baseClasses.Utilidades;
-import view.menuprincipal.PainelMateria;
+
 
 public class AtividadesScroll extends JScrollPane {
     public AtividadesScroll(Materia materia){

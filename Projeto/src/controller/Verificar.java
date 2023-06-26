@@ -102,4 +102,42 @@ public class Verificar {
     		return false;
     	}
     }
+
+    public static boolean materiaJaExiste (String nomeMateria, String usuario) {
+        //verifica se o nome de uma matéria já existe para um usuário 
+        //evitar que sejam criados matéria com o mesmo nome para um mesmo usuário
+        File materiasCSV = new File("Projeto\\src\\controller\\Files\\Materias.csv");
+        String line = "";
+        boolean existe = false;
+        BufferedReader br = null;
+        try {
+            if (materiasCSV.exists()) {
+                br = new BufferedReader(new FileReader(materiasCSV));
+                
+                while ((line = br.readLine()) != null) {
+                    String[] data = line.split(","); //vetor da linha
+                    String currUsuario = data[0];
+                    if (usuario.equals(currUsuario)) {
+                        String currMateria = data[1];
+                        if (currMateria.equals(nomeMateria)) {
+                            br.close();
+                            existe = true;
+                            break;
+                        }
+                    }
+                }
+            }
+            else {
+                existe = false;
+            }
+        }
+        catch (IOException e) {
+                JOptionPane.showMessageDialog(null, "Ocorreu um erro inesperado :(", "Erro", JOptionPane.ERROR_MESSAGE);
+                System.out.println(e);
+        }
+        if (existe) {
+            JOptionPane.showMessageDialog(null, "Você já cadastrou uma matéria com este nome. Tente novamente.", "Matéria já existente!", JOptionPane.PLAIN_MESSAGE);
+        }
+        return existe;
+    }
 }

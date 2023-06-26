@@ -2,6 +2,8 @@ package view.menuprincipal;
 import java.awt.Color;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
+
 import model.Usuario;
 import view.baseClasses.Utilidades;
 
@@ -13,7 +15,7 @@ public class FramePrincipal extends JFrame {
         //Fonte
 
         PainelSuperior painelSuperior = new PainelSuperior();
-        PainelInferiorEsquerdo painelInferiorEsquerdo = new PainelInferiorEsquerdo();
+        PainelInferiorEsquerdo painelInferiorEsquerdo = new PainelInferiorEsquerdo(usuario.getListaMaterias());
         PainelInferiorDireito painelInferiorDireito = new PainelInferiorDireito(usuario);
 
         this.setSize(Utilidades.redimensionarFrameTotal());

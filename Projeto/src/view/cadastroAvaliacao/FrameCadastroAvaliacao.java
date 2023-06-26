@@ -6,12 +6,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import controller.CadastroAvaliacao;
-import model.InterfaceMateria;
+//import controller.CadastroProva;
+import model.Materia;
 import view.baseClasses.LabelIndicacao;
 import view.baseClasses.Utilidades;
 import view.baseClasses.OriginFrame;
@@ -25,15 +27,17 @@ public class FrameCadastroAvaliacao extends OriginFrame implements ActionListene
     private JTextField nota;
     private JTextField pesoNaMedia;
     private JTextField extraInfo;
-    private InterfaceMateria materia;
-    
-    public FrameCadastroAvaliacao(InterfaceMateria materia) {
-        JPanel painel = new JPanel();
+    private Materia materia;
+    JComboBox<String> fieldTipoAvaliacao;
+    JPanel painel;
+
+    public FrameCadastroAvaliacao(Materia materia) {
+        painel = new JPanel();
         this.materia = materia;
 
         painel.setBackground(roxo);
         painel.setLayout(null);
-        painel.setBounds(Utilidades.dimensoesProporçãoAltura(0.5), Utilidades.dimensoesProporçãoAltura(0.01), 500, 500);
+        painel.setBounds(Utilidades.dimensoesProporçãoAltura(0.5), Utilidades.dimensoesProporçãoAltura(0.01), 500, Utilidades.dimensoesProporçãoAltura(0.65));
         painel.setBorder(BorderFactory.createEtchedBorder());
 
         //Título
@@ -106,6 +110,7 @@ public class FrameCadastroAvaliacao extends OriginFrame implements ActionListene
         BotaoCadastroAvaliacao.setVisible(true);
         this.add(painel);
         this.add(labelFundo);
+        this.getContentPane().setBackground(Color.WHITE);
     }
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -117,5 +122,6 @@ public class FrameCadastroAvaliacao extends OriginFrame implements ActionListene
             String extraInfoStr = extraInfo.getText();
             new CadastroAvaliacao(nomeStr, dataStr, notaStr, pesoNaMediaStr, extraInfoStr, materia);
         }
-    }
+
+        }
 }

@@ -1,4 +1,5 @@
 package controller;
+import java.io.File;
 
 import javax.swing.JOptionPane;
 
@@ -11,8 +12,8 @@ public class AddMateria {
 		boolean continuar = true;
 		
 		if (nomeMateria.isBlank() || turmaMateria.isBlank() 
-	     || profMateria.isBlank()  || creditosMateria.isBlank() 
-	     || notaMinMateria.isBlank()) {
+	    || profMateria.isBlank()  || creditosMateria.isBlank() 
+	    || notaMinMateria.isBlank()) {
 			continuar = false;
 			JOptionPane.showMessageDialog(null, "Preencha todos os campos para continuar", "Aviso", JOptionPane.WARNING_MESSAGE);
 		}
@@ -25,14 +26,21 @@ public class AddMateria {
 				continuar = false;
 				JOptionPane.showMessageDialog(null, "\"Nota mínima\" deve ser um número", "Aviso", JOptionPane.WARNING_MESSAGE);
 			}
+			if (Verificar.materiaJaExiste(nomeMateria, user.getUsuario())) {
+				continuar = false;
+			}
 		}
 		
 		if (continuar) {
 			int creditosInt = Integer.parseInt(creditosMateria);
 			double notaMinDouble = Double.parseDouble(notaMinMateria);
-			Materia mat = new Materia(nomeMateria, turmaMateria, profMateria, notaMinDouble, creditosInt, 0, tipoMediaMateria + 1);
+			Materia mat = new Materia(nomeMateria, turmaMateria, profMateria, notaMinDouble, creditosInt, 0, tipoMediaMateria + 1, user);
 			user.addMateria(mat);
-			JOptionPane.showMessageDialog(null, "Matéria adicionada com sucesso!", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
+			//Arquivo para matéria
+			File materiasCSV = new File("Projeto/src/controller/Files/Materias.csv");
+            String header = "USER,NOME_MATERIA,TURMA,NOME_PROFESSOR,NOTA_MINIMA,NUMERO_CREDITOS,NUMERO_FALTAS,TIPO_MEDIA\n"; 
+            String conteudo = user.getUsuario() + "," + mat.getNome() + "," + mat.getTurma() + "," + mat.getNomeProfessor() + "," + mat.getNotaMinima() + "," + mat.getCreditos()+ "," + mat.getFaltas() + "," + mat.getTipoMedia()+ "\n";
+			OriginFile.dealWithFile(materiasCSV, header, conteudo);
 		}
 	}
 }

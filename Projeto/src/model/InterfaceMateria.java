@@ -36,8 +36,6 @@ public interface InterfaceMateria {
 
     void setTipoMedia(int tipoMedia);
 
-    double calcMediaAtual();
-
     boolean jaPassou();
 
     int calcNumFaltasMax();
@@ -48,4 +46,5 @@ public interface InterfaceMateria {
 
     boolean removerAvaliacao(Avaliacao avalicao);
 
+    Usuario getUser();
 }
