@@ -44,7 +44,7 @@ public class Cadastro {
     	}
     	
     	String caminho = "Projeto/src/controller/Files/Users.csv";
-		try (BufferedReader br = new BufferedReader(new FileReader(caminho))){
+		try (BufferedReader br = new BufferedReader(new FileReader(caminho))) {
 			
 			String linha = br.readLine();
 	    	linha = br.readLine();
@@ -57,11 +57,10 @@ public class Cadastro {
 	    	}
 	    	br.close();
 		}
-		 catch (IOException e) {
+		catch (IOException e) {
 			e.printStackTrace();
 		}
     }
-    
     
     public static void setListaUsers(ArrayList<Usuario> listaUsers) {
     	Cadastro.listaUsers = listaUsers;
