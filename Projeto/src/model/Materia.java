@@ -20,7 +20,7 @@ public class Materia implements InterfaceMateria {
         this.faltas = faltas;
         this.creditos = creditos;
         this.tipoMedia = tipoMedia;
-        listaAvaliacoes = new ArrayList<Avaliacao>();
+        this.listaAvaliacoes = new ArrayList<Avaliacao>();
         this.mediaAtual = 0;
     }
 
