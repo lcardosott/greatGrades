@@ -12,8 +12,8 @@ import view.firstPage.FrameInicial;
 
 public class App {
     public static void main(String[] args) {
-        
-    	new FrameInicial();
+        Inicializar.lerTudo();
+    	//new FrameInicial();
         Usuario user = new Usuario("user", "Caio", "Unicamp", "Eng. Comp.", "senha");
         Materia materia = new Materia("materiatop", "a", "nomeProf", 5, 6, 0, 1, user);
         //new FrameCadastroAvaliacao(materia);
