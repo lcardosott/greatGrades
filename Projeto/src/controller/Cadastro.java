@@ -38,7 +38,7 @@ public class Cadastro {
         }
     }
 
-    public static void lerUsuarios(){
+    public static void lerUsuarios() {
     	if (listaUsers == null) {
     		listaUsers = new ArrayList<Usuario>();
     	}
