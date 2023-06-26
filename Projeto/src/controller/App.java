@@ -1,18 +1,20 @@
 package controller;
-//import view.firstPage.FrameInicial;
+import model.Avaliacao;
 import model.Materia;
 import model.Usuario;
-//import view.addMateria.FrameAddMateria;
 import view.cadastroAvaliacao.FrameCadastroAvaliacao;
 import view.firstPage.FrameInicial;
-//import model.Usuario;
+import view.menuprincipal.FramePrincipal;
+import view.verMateria.FrameMateria;
 import view.verMateria.FrameVerMateria;
-//import view.verUsuario.FrameUsuario;
 import view.firstPage.FrameInicial;
 
 public class App {
     public static void main(String[] args) {
-        Inicializar.lerTudo();
+    	Inicializar.lerTudo();
+    	// Depois do login, deve-se ler as matérias que pertencem a um user,
+    	// bem como as avaliações.
+    	
     	//new FrameInicial();
         Usuario user = new Usuario("user", "Caio", "Unicamp", "Eng. Comp.", "senha");
         Materia materia = new Materia("materiatop", "a", "nomeProf", 5, 6, 0, 1, user);
