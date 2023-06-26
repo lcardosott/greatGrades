@@ -61,7 +61,7 @@ public class Buscar {
 	    	linha = br.readLine();
 	    	int currIndex = 1;
 
-	    	while (linha != null) {
+	        while (linha != null) {
 	    		String[] campos = linha.split(",");
 	    	    String currUsuario = campos[0];
                 String currNomeMateria = campos[2];

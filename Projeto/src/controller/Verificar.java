@@ -142,8 +142,8 @@ public class Verificar {
     }
 
     public static boolean avaliacaoJaExiste (String nomeAvaliacao, String nomeMateria, String usuario) {
-        //verifica se o nome de uma matéria já existe para um usuário 
-        //evitar que sejam criados matéria com o mesmo nome para um mesmo usuário
+        //verifica se o nome de uma avaliacao já existe para uma materia 
+        //evitar que sejam criados avaliacoes com o mesmo nome para uma mesma materia
         File avaliacoesCSV = new File("Projeto\\src\\controller\\Files\\Avaliacoes.csv");
         String line = "";
         boolean existe = false;
