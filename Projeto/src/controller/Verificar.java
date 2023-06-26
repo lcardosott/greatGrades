@@ -140,4 +140,48 @@ public class Verificar {
         }
         return existe;
     }
+
+    public static boolean avaliacaoJaExiste (String nomeAvaliacao, String nomeMateria, String usuario) {
+        //verifica se o nome de uma matéria já existe para um usuário 
+        //evitar que sejam criados matéria com o mesmo nome para um mesmo usuário
+        File avaliacoesCSV = new File("Projeto\\src\\controller\\Files\\Avaliacoes.csv");
+        String line = "";
+        boolean existe = false;
+        BufferedReader br = null;
+        try {
+            if (avaliacoesCSV.exists()) {
+                br = new BufferedReader(new FileReader(avaliacoesCSV));
+                
+                while ((line = br.readLine()) != null) {
+                    String[] data = line.split(","); //vetor da linha
+                    String currUsuario = data[0];
+                    //compara usuário
+                    if (usuario.equals(currUsuario)) {
+                        String currMateria = data[1];
+                        //compara matéria
+                        if (currMateria.equals(nomeMateria)) {
+                            String currNomeAvaliacao = data[2];
+                            //compara nome da avaliação
+                            if (currNomeAvaliacao.equals(nomeAvaliacao)) {
+                                br.close();
+                                existe = true;
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+            else {
+                existe = false;
+            }
+        }
+        catch (IOException e) {
+                JOptionPane.showMessageDialog(null, "Ocorreu um erro inesperado :(", "Erro", JOptionPane.ERROR_MESSAGE);
+                System.out.println(e);
+        }
+        if (existe) {
+            JOptionPane.showMessageDialog(null, "Você já cadastrou uma matéria com este nome. Tente novamente.", "Matéria já existente!", JOptionPane.PLAIN_MESSAGE);
+        }
+        return existe;
+    }
 }
