@@ -1,20 +1,20 @@
 package view.menuprincipal;
-
 import java.awt.Color;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import model.Usuario;
 import view.baseClasses.Utilidades;
 
 public class FramePrincipal extends JFrame {
-    public FramePrincipal(){
+    public FramePrincipal(Usuario usuario){
         //Imagens
         ImageIcon logo = new ImageIcon("imagens/Logo.jpg");
 
         //Fonte
 
         PainelSuperior painelSuperior = new PainelSuperior();
-        PainelInferior painelInferior = new PainelInferior();
-
+        PainelInferiorEsquerdo painelInferiorEsquerdo = new PainelInferiorEsquerdo(usuario.getListaMaterias());
+        PainelInferiorDireito painelInferiorDireito = new PainelInferiorDireito(usuario);
 
         this.setSize(Utilidades.redimensionarFrameTotal());
         this.setIconImage(logo.getImage());
@@ -27,6 +27,7 @@ public class FramePrincipal extends JFrame {
         this.getContentPane().setBackground(Color.GRAY);
         
         this.add(painelSuperior);
-        this.add(painelInferior);
+        this.add(painelInferiorEsquerdo);
+        this.add(painelInferiorDireito);
     }
 }

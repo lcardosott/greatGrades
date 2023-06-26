@@ -1,5 +1,4 @@
 package view.baseClasses;
-
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 

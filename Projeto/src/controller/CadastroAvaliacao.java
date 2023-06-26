@@ -28,7 +28,7 @@ public class CadastroAvaliacao {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "O campo 'Peso na média' deve necessariamente ser um número.\nUse '.' para separar as casas decimais.", "Campo inadequado!", JOptionPane.ERROR_MESSAGE);
         }
-        if (checkNota && checkPesoNaMedia) {
+        if (checkNota && checkPesoNaMedia && (!Verificar.avaliacaoJaExiste(nome, materia.getNome(), materia.getUser().getUsuario()))) {
             Avaliacao avaliacao = new Avaliacao(nome, data, notaDouble, pesoNaMediaDouble, extraInfo, materia);
             materia.addAvaliacao(avaliacao);
             //Arquvio

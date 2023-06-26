@@ -17,6 +17,8 @@ public class Login {
     		boolean found = Verificar.loginUsuarioSenha(usuario, senha);
         	if (found) {
         		user = Buscar.buscarUsuario(usuario);
+        		// Inicializar-> método para adicionar materias (do csv) ao usuario.
+        		// Inicializar-> método para adicionar provas às matérias.
             	JOptionPane.showMessageDialog(null, "Login realizado com sucesso!", "Bem vindo!", JOptionPane.PLAIN_MESSAGE);
         	}
     	}
