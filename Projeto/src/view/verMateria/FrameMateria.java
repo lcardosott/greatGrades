@@ -1,6 +1,7 @@
 package view.verMateria;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import java.awt.Color;
@@ -14,6 +15,7 @@ import view.baseClasses.Utilidades;
 public class FrameMateria extends OriginFrame{
     
     public FrameMateria(Materia materia) {
+        this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         Color roxo = new Color(0xFDB5ED);
         ImageIcon fundo = new ImageIcon("imagens/fundo.png");
         JPanel painel = new JPanel();
@@ -43,7 +45,7 @@ public class FrameMateria extends OriginFrame{
         LabelIndicacao media = new LabelIndicacao("Media Atual: ", new Font("Arial",Font.BOLD,20),roxo);
         media.setBounds(Utilidades.dimensoesProporçãoLargura(0.02) + 220,Utilidades.dimensoesProporçãoLargura(0.02) + Utilidades.dimensoesProporçãoAltura(0.2) + 20, 180,23);
 
-        LabelIndicacao mediaAtual = new LabelIndicacao(Integer.toString(materia.getFaltas()), new Font("Arial",Font.BOLD,20),new Color(0xD643CE));
+        LabelIndicacao mediaAtual = new LabelIndicacao(Double.toString(materia.getMediaAtual()), new Font("Arial",Font.BOLD,20),new Color(0xD643CE));
         mediaAtual.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         mediaAtual.setBounds(Utilidades.dimensoesProporçãoLargura(0.02) + 400,Utilidades.dimensoesProporçãoLargura(0.02) + Utilidades.dimensoesProporçãoAltura(0.2) + 20,70 ,22 );
         mediaAtual.setHorizontalAlignment(JLabel.CENTER);
