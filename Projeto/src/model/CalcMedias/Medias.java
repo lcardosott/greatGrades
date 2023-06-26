@@ -1,4 +1,4 @@
-package model;
+package model.CalcMedias;
 
 public enum Medias {
     MEDIA_ARITMETICA_SIMPLES(1),

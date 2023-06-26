@@ -25,7 +25,6 @@ public class PainelCadastro extends JPanel implements ActionListener {
     //private JFrame frame;
 
     public PainelCadastro (JFrame frame) {
-        //this.frame = frame;
         this.setBackground(roxo);
         this.setLayout(null);
         this.setBounds((Utilidades.dimensoesProporçãoLargura(0.6)-500)/2, (Utilidades.dimensoesProporçãoAltura(1)-500)/2 -30, 500, 500);
