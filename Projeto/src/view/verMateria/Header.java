@@ -2,6 +2,7 @@ package view.verMateria;
 import java.awt.Color;
 import java.awt.Font;
 import javax.swing.BorderFactory;
+import javax.swing.JButton;
 import javax.swing.JPanel;
 import model.Materia;
 import view.baseClasses.LabelIndicacao;
@@ -27,7 +28,16 @@ public class Header extends JPanel {
         turma.setBounds(Utilidades.dimensoesProporçãoLargura(0.02), Utilidades.dimensoesProporçãoAltura(0.03) + 82,300,25);
     
 
+        JButton adiciona = new JButton();
+        adiciona.setText("+ Atividade");
+        adiciona.setFont(new Font("Arial",Font.BOLD,18));
+        adiciona.setBackground(new Color(0XFFD954));
+        adiciona.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
+        adiciona.setFocusPainted(false);
+        adiciona.setBounds(Utilidades.dimensoesProporçãoLargura(0.46) -173, Utilidades.dimensoesProporçãoAltura(0.2)-43,150, 23);
+
         //Adicionando
+        this.add(adiciona);
         this.add(nome);
         this.add(professor);
         this.add(turma);

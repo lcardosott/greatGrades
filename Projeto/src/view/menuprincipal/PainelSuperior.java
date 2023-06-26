@@ -42,7 +42,7 @@ public class PainelSuperior extends JPanel{
         labelLogo.setHorizontalTextPosition(JLabel.LEFT);
         labelLogo.setIconTextGap(8);
         labelLogo.setOpaque(true);
-        labelLogo.setHorizontalAlignment(JLabel.RIGHT);
+        labelLogo.setHorizontalAlignment(JLabel.CENTER);
 
         //Referente ao botao
         ImageIcon exit = new ImageIcon("imagens/exit.png");

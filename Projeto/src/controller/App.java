@@ -8,7 +8,6 @@ import view.cadastroAvaliacao.FrameCadastroAvaliacao;
 import view.firstPage.FrameInicial;
 import view.menuprincipal.FramePrincipal;
 import view.verMateria.FrameMateria;
-import view.verMateria.FrameVerMateria;
 //import view.verUsuario.FrameUsuario;
 import view.firstPage.FrameInicial;
 
@@ -27,8 +26,8 @@ public class App {
         materia.addAvaliacao(avaliacao);
         materia.addAvaliacao(avaliacao);
         materia.addAvaliacao(avaliacao);
-        new FramePrincipal(user);
+        //new FramePrincipal(user);
         new FrameMateria(materia);
-        //new FrameAddMateria(user);
+        new FrameAddMateria(user);
     }
 }
