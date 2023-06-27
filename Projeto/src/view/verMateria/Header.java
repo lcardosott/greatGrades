@@ -1,15 +1,23 @@
 package view.verMateria;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import model.Materia;
 import view.baseClasses.LabelIndicacao;
 import view.baseClasses.Utilidades;
+import view.cadastroAvaliacao.FrameCadastroAvaliacao;
 
-public class Header extends JPanel {
+public class Header extends JPanel implements ActionListener {
+    private JButton adiciona;
+    private Materia materia;
+
     public Header(Materia materia){
+        this.materia = materia;
         this.setBackground(Color.white);
         this.setLayout(null);
         this.setBorder(BorderFactory.createLineBorder(Color.BLACK));
@@ -28,7 +36,7 @@ public class Header extends JPanel {
         turma.setBounds(Utilidades.dimensoesProporçãoLargura(0.02), Utilidades.dimensoesProporçãoAltura(0.03) + 82,300,25);
     
 
-        JButton adiciona = new JButton();
+        adiciona = new JButton();
         adiciona.setText("+ Atividade");
         adiciona.setFont(new Font("Arial",Font.BOLD,18));
         adiciona.setBackground(new Color(0XFFD954));
@@ -41,5 +49,12 @@ public class Header extends JPanel {
         this.add(nome);
         this.add(professor);
         this.add(turma);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == adiciona) {
+            new FrameCadastroAvaliacao(materia);
+        }
     }
 }

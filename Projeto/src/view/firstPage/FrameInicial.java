@@ -6,6 +6,7 @@ import java.io.File;
 import java.io.IOException;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 import javax.swing.border.Border;
@@ -42,7 +43,7 @@ public class FrameInicial extends OriginFrame {
         //painelEsquerda.setBorder(border);
         painelEsquerda.setOpaque(true);
 
-        PainelLogin painelLogin = new PainelLogin();
+        PainelLogin painelLogin = new PainelLogin(this);
 
         LabelIndicacao greatGrades = new LabelIndicacao("GreatGrades", fonte, Color.white);
         greatGrades.setVerticalAlignment(JLabel.TOP);
@@ -83,5 +84,7 @@ public class FrameInicial extends OriginFrame {
         this.add(painelDireita);
         //this.setLayout(null);
         this.setVisible(true);
+        //Close Operation
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 }

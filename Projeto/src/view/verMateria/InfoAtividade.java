@@ -2,17 +2,33 @@ package view.verMateria;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.Frame;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.regex.Pattern;
+
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextPane;
 import javax.swing.border.Border;
+
+import controller.Deletar;
 import model.Avaliacao;
 import view.baseClasses.LabelIndicacao;
 import view.baseClasses.Utilidades;
 
-public class InfoAtividade  extends JPanel {
-    public InfoAtividade(Avaliacao avaliacao){
+public class InfoAtividade  extends JPanel implements ActionListener{
+    private JButton ok;
+    private JButton x;
+    private JTextPane nota;
+    private Avaliacao avaliacao;
+    private Frame frameMateria;
+
+    public InfoAtividade(Frame frameMateria, Avaliacao avaliacao) {
+        this.avaliacao = avaliacao;
+        this.frameMateria = frameMateria;
          //Border
         Border border = BorderFactory.createLineBorder(Color.black,1);
 
@@ -45,7 +61,7 @@ public class InfoAtividade  extends JPanel {
         this.add(notaIndicacao);
 
 
-        JTextPane nota = new JTextPane();
+        nota = new JTextPane();
         nota.setText(Double.toString(avaliacao.getNota()));
         nota.setFont(new Font("Arial",Font.PLAIN,15));
         nota.setBorder(BorderFactory.createLineBorder(Color.black,1));
@@ -53,7 +69,7 @@ public class InfoAtividade  extends JPanel {
         //nota.setLineWrap(true); 
         this.add(nota);
 
-        JButton ok = new JButton("OK");
+        ok = new JButton("OK");
         ok.setFont(new Font("Arial",Font.BOLD,20));
         ok.setBackground(new Color(0xD643CE));
         ok.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1, false));
@@ -63,7 +79,7 @@ public class InfoAtividade  extends JPanel {
 
 
         //Delete
-        JButton x = new JButton("x");
+        x = new JButton("x");
         x.setFont(new Font("Arial",Font.BOLD,20));
         x.setForeground(Color.white);
         x.setBackground(Color.red);
@@ -72,5 +88,24 @@ public class InfoAtividade  extends JPanel {
         x.setBounds( Utilidades.dimensoesProporçãoLargura(0.43),0,Utilidades.dimensoesProporçãoAltura(0.03), Utilidades.dimensoesProporçãoAltura(0.03));
         this.add(x);
 
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == ok) {
+            String newNotaStr = nota.getText();
+            if (Pattern.matches("[0-9,]*", newNotaStr)) {
+                double newNota =Double.parseDouble(newNotaStr);
+                avaliacao.setNota(newNota);
+                frameMateria.repaint();
+            } else {
+                JOptionPane.showMessageDialog(null, "O campo 'Nota' deve necessariamente ser um número.\nUse '.' para separar as casas decimais.", "Campo inadequado!", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+
+        if (e.getSource() == x) {
+            Deletar.deletarAvaliacao(avaliacao);
+            frameMateria.repaint();
+        }
     }
 }

@@ -29,5 +29,6 @@ public class FramePrincipal extends JFrame {
         this.add(painelSuperior);
         this.add(painelInferiorEsquerdo);
         this.add(painelInferiorDireito);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 }

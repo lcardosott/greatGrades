@@ -2,6 +2,7 @@ package view.menuprincipal;
 import java.awt.Color;
 import java.util.ArrayList;
 import javax.swing.BoxLayout;
+import javax.swing.JFrame;
 import javax.swing.JPanel;
 import model.Materia;
 
@@ -15,7 +16,7 @@ public class PainelMateria extends JPanel{
     }
     public void adicionaMaterias(ArrayList<Materia> listaMaterias){
         for(Materia materia: listaMaterias){
-            this.add(new InfoMateria(materia));
+            this.add(new InfoMateria(materia, this));
         }
     }
 }

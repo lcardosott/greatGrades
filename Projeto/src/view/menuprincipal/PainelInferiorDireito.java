@@ -4,15 +4,21 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+
+import view.addMateria.FrameAddMateria;
 import view.baseClasses.LabelIndicacao;
 import view.baseClasses.Utilidades;
 import model.Usuario;
 
 public class PainelInferiorDireito extends JPanel implements ActionListener {
-    public PainelInferiorDireito(Usuario usuario){
+    private Usuario user;
+    private BotaoAdicionaMateira botaoAdicionaMateria;
 
+    public PainelInferiorDireito(Usuario usuario){
+        this.user = usuario;
         //fonte
         Font fonteBasica = new Font("Arial",Font.PLAIN,20);
 
@@ -48,7 +54,7 @@ public class PainelInferiorDireito extends JPanel implements ActionListener {
         LabelIndicacao labelCurso = new LabelIndicacao("Curso: " + usuario.getCurso(), fonteBasica, Color.WHITE);
         labelCurso.setBounds(146,138, 250,20);
 
-        BotaoAdicionaMateira botaoAdicionaMateria = new BotaoAdicionaMateira();
+        botaoAdicionaMateria = new BotaoAdicionaMateira();
         botaoAdicionaMateria.addActionListener(this);
         botaoAdicionaMateria.setBounds(Utilidades.dimensoesProporçãoLargura(0.025),Utilidades.dimensoesProporçãoAltura(0.9)-150,Utilidades.dimensoesProporçãoLargura(0.25),Utilidades.dimensoesProporçãoAltura(0.08));
 
@@ -63,7 +69,8 @@ public class PainelInferiorDireito extends JPanel implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'actionPerformed'");
+        if (e.getSource() == botaoAdicionaMateria) {
+            new FrameAddMateria(user);
+        }
     }
 }

@@ -1,6 +1,7 @@
 package view.verMateria;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -58,8 +59,18 @@ public class FrameMateria extends OriginFrame{
         //Header
         Header header = new Header(materia);
 
+        //Botão Voltar
+        JButton voltar = new JButton("<-- Voltar");
+        voltar.setFont(new Font("Arial",Font.BOLD,25));
+        voltar.setForeground(Color.white);
+        voltar.setBackground(Color.red);
+        voltar.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1, false));
+        voltar.setFocusPainted(false);
+        voltar.setBounds( Utilidades.dimensoesProporçãoLargura(0.80),100,150, 40);
+        this.add(voltar);
+
         //Scroll
-        AtividadesScroll scroll = new AtividadesScroll(materia);
+        AtividadesScroll scroll = new AtividadesScroll(this, materia);
         painel.add(scroll);
         painel.add(faltas);
         painel.add(faltaResultado);

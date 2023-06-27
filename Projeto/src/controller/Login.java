@@ -1,12 +1,15 @@
 package controller;
+import java.awt.Frame;
+
 import javax.swing.JOptionPane;
 
 import model.Usuario;
+import view.menuprincipal.FramePrincipal;
 
 public class Login {
     private Usuario user;
 
-    public Login (String usuario, String senha) {
+    public Login (Frame frameInicial, String usuario, String senha) {
     	boolean continuar = true;
     	if (usuario.isBlank() || senha.isBlank()) {
     		continuar = false;
@@ -20,6 +23,8 @@ public class Login {
         		// Inicializar-> método para adicionar materias (do csv) ao usuario.
         		// Inicializar-> método para adicionar provas às matérias.
             	JOptionPane.showMessageDialog(null, "Login realizado com sucesso!", "Bem vindo!", JOptionPane.PLAIN_MESSAGE);
+				frameInicial.dispose();
+            	new FramePrincipal(user);
         	}
     	}
     }

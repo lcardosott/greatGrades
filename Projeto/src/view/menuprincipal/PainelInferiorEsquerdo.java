@@ -2,16 +2,18 @@ package view.menuprincipal;
 import java.awt.Color;
 import java.awt.Font;
 import java.util.ArrayList;
+
+import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 import javax.swing.JTextPane;
 import model.Materia;
 import view.baseClasses.Utilidades;
 
 public class PainelInferiorEsquerdo extends JScrollPane{
-
         public PainelInferiorEsquerdo(ArrayList<Materia> listaMaterias){
             //Teste materia
             verificaMateria(listaMaterias);
+            this.setViewportView(new PainelMateria(listaMaterias));
             this.setBackground(Color.white);
             this.setBounds(0,Utilidades.dimensoesProporçãoAltura(0.10) +1, Utilidades.dimensoesProporçãoLargura(0.7),Utilidades.dimensoesProporçãoAltura(0.9)-1);
 

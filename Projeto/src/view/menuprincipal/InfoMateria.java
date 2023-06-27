@@ -2,24 +2,39 @@ package view.menuprincipal;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.Border;
+
+import controller.Deletar;
 import model.Materia;
 import view.baseClasses.LabelIndicacao;
 import view.baseClasses.Utilidades;
+import view.verMateria.FrameMateria;
 
-public class InfoMateria extends JPanel{
-    public InfoMateria(Materia materia){
+public class InfoMateria extends JPanel implements ActionListener{
+    private Materia materiaClasse;
+    private BotaoMateria botao;
+    private JButton x;
+    private PainelMateria painelClasse;
+    private JButton mais;
+    private JButton menos;
+    private LabelIndicacao numeroFaltas;
 
+    public InfoMateria(Materia materia, PainelMateria painel){
         //Border
         Border border = BorderFactory.createLineBorder(Color.white,10);
         //Cor
         Color roxo = new Color(0xFDB5ED);
-
+        this.painelClasse = painel;
+        this.materiaClasse= materia;
         //Seta parametros basicos
         this.setLayout(null);
         this.setBorder(border);
@@ -40,8 +55,9 @@ public class InfoMateria extends JPanel{
         
 
         //Botao ver materia
-        BotaoMateria botao = new BotaoMateria();
-        botao.setBounds(Utilidades.dimensoesProporçãoLargura(0.65)-Utilidades.dimensoesProporçãoLargura(0.1),
+        this.botao = new BotaoMateria();
+        this.botao.addActionListener(this);
+        this.botao.setBounds(Utilidades.dimensoesProporçãoLargura(0.65)-Utilidades.dimensoesProporçãoLargura(0.1),
         Utilidades.dimensoesProporçãoAltura(0.35)-Utilidades.dimensoesProporçãoAltura(0.05)-50,
         Utilidades.dimensoesProporçãoLargura(0.1), 
         Utilidades.dimensoesProporçãoAltura(0.05));
@@ -52,28 +68,28 @@ public class InfoMateria extends JPanel{
         falta.setBounds(Utilidades.dimensoesProporçãoLargura(0.65)-Utilidades.dimensoesProporçãoLargura(0.1)-100, Utilidades.dimensoesProporçãoAltura(0.07)+ 22,95,23);
 
         //Faltasssss
-        LabelIndicacao numeroFaltas = new LabelIndicacao(Integer.toString(materia.getFaltas()), new Font("Arial",Font.BOLD,20), Color.white);
+        this.numeroFaltas = new LabelIndicacao(Integer.toString(materia.getFaltas()), new Font("Arial",Font.BOLD,20), Color.white);
         numeroFaltas.setBounds(Utilidades.dimensoesProporçãoLargura(0.65)-Utilidades.dimensoesProporçãoLargura(0.1)+5, Utilidades.dimensoesProporçãoAltura(0.07)+ 22,60,23);
         numeroFaltas.setBorder(BorderFactory.createLineBorder(Color.black,1));
         numeroFaltas.setHorizontalAlignment(JLabel.CENTER);
 
-        JButton mais = new JButton();
-        mais.setText("+");
-        mais.setFont(new Font("Arial",Font.BOLD,20));
-        mais.setBackground(new Color(0XFFD954));
-        mais.setForeground(Color.WHITE);
-        mais.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
-        mais.setFocusPainted(false);
-        mais.setBounds(Utilidades.dimensoesProporçãoLargura(0.65)-Utilidades.dimensoesProporçãoLargura(0.1) + 68, Utilidades.dimensoesProporçãoAltura(0.07)+ 22,23,23);
+        this.mais = new JButton();
+        this.mais.setText("+");
+        this.mais.setFont(new Font("Arial",Font.BOLD,20));
+        this.mais.setBackground(new Color(0XFFD954));
+        this.mais.setForeground(Color.WHITE);
+        this.mais.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
+        this.mais.setFocusPainted(false);
+        this.mais.setBounds(Utilidades.dimensoesProporçãoLargura(0.65)-Utilidades.dimensoesProporçãoLargura(0.1) + 68, Utilidades.dimensoesProporçãoAltura(0.07)+ 22,23,23);
 
-        JButton menos = new JButton();
-        menos.setText("-");
-        menos.setFont(new Font("Arial",Font.BOLD,20));
-        menos.setBackground(new Color(0XFFD954));
-        menos.setForeground(Color.WHITE);
-        menos.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
-        menos.setFocusPainted(false);
-        menos.setBounds(Utilidades.dimensoesProporçãoLargura(0.65)-Utilidades.dimensoesProporçãoLargura(0.1) + 95, Utilidades.dimensoesProporçãoAltura(0.07)+ 22,23,23);
+        this.menos = new JButton();
+        this.menos.setText("-");
+        this.menos.setFont(new Font("Arial",Font.BOLD,20));
+        this.menos.setBackground(new Color(0XFFD954));
+        this.menos.setForeground(Color.WHITE);
+        this.menos.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
+        this.menos.setFocusPainted(false);
+        this.menos.setBounds(Utilidades.dimensoesProporçãoLargura(0.65)-Utilidades.dimensoesProporçãoLargura(0.1) + 95, Utilidades.dimensoesProporçãoAltura(0.07)+ 22,23,23);
 
 
         //Warninggg
@@ -82,13 +98,13 @@ public class InfoMateria extends JPanel{
         this.add(warning);
 
         //Delete
-        JButton x = new JButton("x");
-        x.setFont(new Font("Arial",Font.BOLD,20));
-        x.setForeground(Color.white);
-        x.setBackground(Color.red);
-        x.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1, false));
-        x.setFocusPainted(false);
-        x.setBounds(Utilidades.dimensoesProporçãoLargura(0.65),10,Utilidades.dimensoesProporçãoAltura(0.03), Utilidades.dimensoesProporçãoAltura(0.03));
+        this.x = new JButton("x");
+        this.x.setFont(new Font("Arial",Font.BOLD,20));
+        this.x.setForeground(Color.white);
+        this.x.setBackground(Color.red);
+        this.x.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1, false));
+        this.x.setFocusPainted(false);
+        this.x.setBounds(Utilidades.dimensoesProporçãoLargura(0.65),10,Utilidades.dimensoesProporçãoAltura(0.03), Utilidades.dimensoesProporçãoAltura(0.03));
         this.add(x);
 
         //########################################################
@@ -103,8 +119,6 @@ public class InfoMateria extends JPanel{
         //professor
         LabelIndicacao labelProf = new LabelIndicacao(materia.getNomeProfessor(), new Font("Arial",Font.PLAIN,20), roxo);
         labelProf .setBounds(60+Utilidades.dimensoesProporçãoAltura(0.2),Utilidades.dimensoesProporçãoAltura(0.11) +35, 400, 20);
-
-
 
         this.add(falta);
         this.add(labelNome);
@@ -121,5 +135,26 @@ public class InfoMateria extends JPanel{
         materia.setFaltas(materia.getFaltas() + numero);
     }
 
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == this.botao) {
+            //abrir o frame da matéria
+            new FrameMateria(materiaClasse);
+        }
 
+        if (e.getSource() == x) {
+            Deletar.deletarMateria(materiaClasse);
+            this.painelClasse.repaint();
+        }
+
+        if (e.getSource() == mais) {
+            materiaClasse.setFaltas(materiaClasse.getFaltas() + 1);
+            this.numeroFaltas.validate();
+        }
+
+        if (e.getSource() == menos) {
+            materiaClasse.setFaltas(materiaClasse.getFaltas() - 1);
+            this.numeroFaltas.validate();
+        }
+    }
 }
