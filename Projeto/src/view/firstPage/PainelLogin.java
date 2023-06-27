@@ -1,6 +1,7 @@
 package view.firstPage;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Frame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.BorderFactory;
@@ -17,9 +18,10 @@ public class PainelLogin extends JPanel implements ActionListener{
     private BotaoLogin botaoLogin;
     private JTextField usuario;
     private JTextField senha;
+    private Frame frame;
 
-    public PainelLogin() {
-
+    public PainelLogin(Frame frame) {
+        this.frame = frame;
         this.setBackground(roxo);
         this.setLayout(null);
         this.setBounds((Utilidades.dimensoesProporçãoLargura(0.4)-350)/2, (Utilidades.dimensoesProporçãoAltura(1)-300) -30, 350, 200);
@@ -50,16 +52,7 @@ public class PainelLogin extends JPanel implements ActionListener{
         if (e.getSource() == botaoLogin) {
             String usuarioStr = usuario.getText();
             String senhaStr = senha.getText();
-            new Login(usuarioStr, senhaStr);
+            new Login(frame, usuarioStr, senhaStr);
         }
     }
-        /*
-        Verificar se o usuário bate com a senha
-        se sim, abrir a página principal
-            frame.dispose();
-            MainFrame mainFrame = new MainFrame();
-
-        se não, avisar que o usuário ou senha está incorreto
-            JOptionPane.showMessageDialog(null, "A senha ou usuário está incorreta. Tente novamente.", "Senha ou usuário inválido", JOptionPane.INFORMATION_MESSAGE);
-        */
 }

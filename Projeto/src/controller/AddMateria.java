@@ -1,14 +1,16 @@
 package controller;
+import java.awt.Frame;
 import java.io.File;
 
 import javax.swing.JOptionPane;
 
 import model.Materia;
 import model.Usuario;
+import view.menuprincipal.FramePrincipal;
 
 public class AddMateria {
 	
-	public AddMateria(Usuario user, String nomeMateria, String turmaMateria, String profMateria, String notaMinMateria, String creditosMateria, int tipoMediaMateria) {
+	public AddMateria(Frame frameMateria, Frame framePrincipal, Usuario user, String nomeMateria, String turmaMateria, String profMateria, String notaMinMateria, String creditosMateria, int tipoMediaMateria) {
 		boolean continuar = true;
 		
 		if (nomeMateria.isBlank() || turmaMateria.isBlank() 
@@ -41,6 +43,9 @@ public class AddMateria {
             String header = "USER,NOME_MATERIA,TURMA,NOME_PROFESSOR,NOTA_MINIMA,NUMERO_CREDITOS,NUMERO_FALTAS,TIPO_MEDIA\n"; 
             String conteudo = user.getUsuario() + "," + mat.getNome() + "," + mat.getTurma() + "," + mat.getNomeProfessor() + "," + mat.getNotaMinima() + "," + mat.getCreditos()+ "," + mat.getFaltas() + "," + mat.getTipoMedia()+ "\n";
 			OriginFile.dealWithFile(materiasCSV, header, conteudo);
+			frameMateria.dispose();
+			framePrincipal.dispose();
+			new FramePrincipal(user);
 		}
 	}
 }

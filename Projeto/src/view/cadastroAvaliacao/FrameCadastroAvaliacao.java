@@ -120,8 +120,7 @@ public class FrameCadastroAvaliacao extends OriginFrame implements ActionListene
             String notaStr = nota.getText();
             String pesoNaMediaStr = pesoNaMedia.getText();
             String extraInfoStr = extraInfo.getText();
-            new CadastroAvaliacao(nomeStr, dataStr, notaStr, pesoNaMediaStr, extraInfoStr, materia);
+            new CadastroAvaliacao(this, nomeStr, dataStr, notaStr, pesoNaMediaStr, extraInfoStr, materia);
         }
-
-        }
+    }
 }
