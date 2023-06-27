@@ -3,6 +3,7 @@ import java.awt.Frame;
 
 import javax.swing.JOptionPane;
 
+import model.Materia;
 import model.Usuario;
 import view.menuprincipal.FramePrincipal;
 
@@ -20,11 +21,16 @@ public class Login {
     		boolean found = Verificar.loginUsuarioSenha(usuario, senha);
         	if (found) {
         		user = Buscar.buscarUsuario(usuario);
-        		// Inicializar-> método para adicionar materias (do csv) ao usuario.
-        		// Inicializar-> método para adicionar provas às matérias.
+        		Inicializar.lerMaterias(user);
+        		for (Materia mat : user.getListaMaterias()) {
+        			Inicializar.lerAvaliacoes(user, mat);
+        		}
             	JOptionPane.showMessageDialog(null, "Login realizado com sucesso!", "Bem vindo!", JOptionPane.PLAIN_MESSAGE);
 				frameInicial.dispose();
             	new FramePrincipal(user);
+        	}
+        	else {
+        		JOptionPane.showMessageDialog(null, "O usuário ou senha informado está incorreto, tente novamente.", "Usuário ou senha incorretos", JOptionPane.PLAIN_MESSAGE);
         	}
     	}
     }
