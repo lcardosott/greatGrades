@@ -121,4 +121,5 @@ public class InfoMateria extends JPanel{
         materia.setFaltas(materia.getFaltas() + numero);
     }
 
+
 }
