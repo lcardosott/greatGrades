@@ -6,6 +6,8 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+//import java.nio.file.Files;
+//import java.nio.file.Paths;
 
 import javax.swing.JOptionPane;
 
@@ -39,6 +41,8 @@ public class Deletar {
             reader.close();
             writer.close();
             // Renomear o arquivo temporário para o nome do arquivo original
+            //Files.delete(Paths.get(avaliacoesCSVPath));
+            
             if (!avaliacoesCSV.delete()) {
                 JOptionPane.showMessageDialog(null, "Falha ao excluir o arquivo original.", "Erro!", JOptionPane.ERROR_MESSAGE);
                 return false;
@@ -56,6 +60,7 @@ public class Deletar {
             return true;
         } catch (IOException e) {
             JOptionPane.showMessageDialog(null, "Ocorreu um erro inesperado :(", "Erro!", JOptionPane.ERROR_MESSAGE);
+            e.printStackTrace();
             return false;
         }
     }
@@ -90,6 +95,7 @@ public class Deletar {
             }
 
             // Renomear o arquivo temporário para o nome do arquivo original
+            //Files.delete(Paths.get(materiasCSVPath));
             
             if (!materiasCSV.delete()) {
                 JOptionPane.showMessageDialog(null, "Falha ao excluir o arquivo original.", "Erro!", JOptionPane.ERROR_MESSAGE);

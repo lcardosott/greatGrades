@@ -31,6 +31,7 @@ public class Inicializar {
                     bw.write("USER,NOME,INSTITUICAO,CURSO,SENHA\n");
                     bw.flush();
                     bw.close();
+					fw.close();
                 } 
                 catch (IOException e) {
                     // Erro - joptionpane
@@ -60,6 +61,7 @@ public class Inicializar {
                     bw.write("USER,NOME_MATERIA,TURMA,NOME_PROFESSOR,NOTA_MINIMA,NUMERO_CREDITOS,NUMERO_FALTAS,TIPO_MEDIA\n");
                     bw.flush();
                     bw.close();
+					fw.close();
                 } 
                 catch (IOException e) {
                 	// Erro - joptionpane
@@ -73,6 +75,7 @@ public class Inicializar {
                     bw.write("USER,NOME_MATERIA,NOME_AVALIACAO,DATA_AVALIACAO,NOTA,PESO_NA_MEDIA,EXTRA_INFO\n");
                     bw.flush();
                     bw.close();
+					fw.close();
                 } 
                 catch (IOException e) {
                 	// Erro - joptionpane
@@ -87,8 +90,13 @@ public class Inicializar {
 	
 	public static void lerMaterias(Usuario user) {
 		File materiasCSV = new File("Projeto/src/controller/Files/Materias.csv");
-		
-		try (BufferedReader br = new BufferedReader(new FileReader(materiasCSV))) {
+		FileReader fw = null;
+		try {
+			fw = new FileReader(materiasCSV);
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		try (BufferedReader br = new BufferedReader(fw)) {
 			String linha;
 			linha = br.readLine();
 			linha = br.readLine();
@@ -105,7 +113,7 @@ public class Inicializar {
 				linha = br.readLine();
 			}
 			br.close();
-			
+			fw.close();
 		} catch (FileNotFoundException e) {
 			// JOptionPane
 		} catch (IOException e) {
@@ -115,7 +123,14 @@ public class Inicializar {
 	
 	public static void lerAvaliacoes(Usuario user, Materia mat) {
 		File avaliacoesCSV = new File("Projeto/src/controller/Files/Avaliacoes.csv");
-		try (BufferedReader br = new BufferedReader(new FileReader(avaliacoesCSV))) {
+		FileReader fr = null;
+		try {
+			fr = new FileReader(avaliacoesCSV);
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try (BufferedReader br = new BufferedReader(fr)) {
 			String linha;
 			linha = br.readLine();
 			linha = br.readLine();
@@ -131,7 +146,7 @@ public class Inicializar {
 				linha = br.readLine();
 			}
 			br.close();
-			
+			fr.close();
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
