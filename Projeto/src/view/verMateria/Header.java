@@ -48,6 +48,7 @@ public class Header extends JPanel implements ActionListener {
         adiciona.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
         adiciona.setFocusPainted(false);
         adiciona.setBounds(Utilidades.dimensoesProporçãoLargura(0.46) -173, Utilidades.dimensoesProporçãoAltura(0.2)-43,150, 23);
+        adiciona.addActionListener(this);
 
         //Adicionando
         this.add(adiciona);

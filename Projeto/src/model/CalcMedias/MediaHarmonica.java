@@ -6,7 +6,9 @@ public class MediaHarmonica extends OriginMedia {
     public double calcValor() {
         double soma = 0;
         for (Avaliacao avalicao : super.getListaAvaliacoes()) {
-            soma += (double) 1/avalicao.getNota();
+            if (avalicao.getNota() != 0) {
+                soma += (double) 1/avalicao.getNota();
+            }
         }
         return (double) super.getListaAvaliacoes().size()/soma;
     }

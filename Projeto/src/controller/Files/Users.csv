@@ -1,5 +1,2 @@
-USER,NOME,INSTITUICAO,CURSO,SENHATesteFoda,Obaa,Unicamp,Engenharia,senha
-UsuarioTeste,Caio,Unicamp,Engenharia,Senha
-UsuarioTester,Caio,Unicamp,Engenharia,Senha
-aaaaaa,Usuario,eng,engoo,senhaa
-Teste,Caio Porto,Unicamp,Engenharia da Computação,senha
+USER,NOME,INSTITUICAO,CURSO,SENHA
+user,aa,a,a,senha

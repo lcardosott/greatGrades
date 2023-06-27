@@ -1,6 +1,7 @@
 package view.verMateria;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -14,8 +15,9 @@ import view.baseClasses.OriginFrame;
 import view.baseClasses.Utilidades;
 
 public class FrameMateria extends OriginFrame{
-    
+    private InterfaceMateria materia;
     public FrameMateria(InterfaceMateria materia) {
+        this.materia = materia;
         Color roxo = new Color(0xFDB5ED);
         ImageIcon fundo = new ImageIcon("imagens/fundo.png");
         JPanel painel = new JPanel();
@@ -68,13 +70,14 @@ public class FrameMateria extends OriginFrame{
         painel.add(atividades);
         painel.add(header);
 
-
-
-
         //Visibilidade
         this.getContentPane().setBackground(Color.WHITE);
         this.setVisible(true);
         this.add(painel);
         this.add(labelFundo);
-}
+    }
+
+    public InterfaceMateria getMateria() {
+        return this.materia;
+    }
 }

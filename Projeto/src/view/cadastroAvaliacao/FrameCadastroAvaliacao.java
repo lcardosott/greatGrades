@@ -14,7 +14,6 @@ import javax.swing.JTextField;
 import controller.CadastroAvaliacao;
 import model.InterfaceMateria;
 //import controller.CadastroProva;
-import model.Materia;
 import view.baseClasses.LabelIndicacao;
 import view.baseClasses.Utilidades;
 import view.baseClasses.OriginFrame;

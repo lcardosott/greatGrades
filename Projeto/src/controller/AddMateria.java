@@ -1,10 +1,8 @@
 package controller;
-import java.awt.Frame;
 import java.io.File;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-
 import model.Materia;
 import model.Usuario;
 import view.menuprincipal.FramePrincipal;

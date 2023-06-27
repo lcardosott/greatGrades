@@ -18,6 +18,7 @@ public class OriginFile {
                     bw.write(conteudo);
                     bw.flush();
                     bw.close();
+                    fw.close();
                     JOptionPane.showMessageDialog(null, "Cadastro realizado com sucesso!", "Cadastrado!", JOptionPane.PLAIN_MESSAGE);
                 } catch (IOException e) {
                     JOptionPane.showMessageDialog(null, "Ocorreu um erro inesperado :(", "Erro na montagem de arquivo", JOptionPane.ERROR_MESSAGE);
@@ -30,6 +31,7 @@ public class OriginFile {
                     bw.write(conteudo);
                     bw.flush();
                     bw.close();
+                    fw.close();
                     JOptionPane.showMessageDialog(null, "Cadastro realizado com sucesso!", "Cadastrado!", JOptionPane.PLAIN_MESSAGE);
                 } catch (IOException e) {
                     JOptionPane.showMessageDialog(null, "Ocorreu um erro inesperado :(", "Erro na montagem de arquivo", JOptionPane.ERROR_MESSAGE);
@@ -42,3 +44,4 @@ public class OriginFile {
         }
     }
 }
+

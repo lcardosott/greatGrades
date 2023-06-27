@@ -13,6 +13,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.Border;
 import view.baseClasses.*;
+import view.verMateria.FrameMateria;
 import controller.*;
 import model.*;
 
@@ -37,7 +38,7 @@ import model.*;
 			this.framePrincipal = framePrincipal;
 			this.user = user;
 			//////// Fonte acima dos TextFields ///////////
-
+			this.frameMateria = frameMateria;
 			// Acima de cada campo
 			Font fonteAcimaFields = new Font("Century Gothic", Font.BOLD, 20);
 			// Fonte do campo

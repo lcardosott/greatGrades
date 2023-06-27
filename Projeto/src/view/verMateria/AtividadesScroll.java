@@ -4,7 +4,7 @@ import java.awt.Frame;
 
 import javax.swing.JScrollPane;
 import model.InterfaceMateria;
-import model.Materia;
+//import model.Materia;
 import view.baseClasses.Utilidades;
 
 
