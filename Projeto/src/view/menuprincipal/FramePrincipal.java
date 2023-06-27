@@ -13,8 +13,8 @@ public class FramePrincipal extends JFrame {
         //Fonte
 
         PainelSuperior painelSuperior = new PainelSuperior();
-        PainelInferiorEsquerdo painelInferiorEsquerdo = new PainelInferiorEsquerdo(this, usuario.getListaMaterias());
-        PainelInferiorDireito painelInferiorDireito = new PainelInferiorDireito(this, usuario);
+        PainelInferiorEsquerdo painelInferiorEsquerdo = new PainelInferiorEsquerdo(usuario.getListaMaterias());
+        PainelInferiorDireito painelInferiorDireito = new PainelInferiorDireito(usuario);
 
         this.setSize(Utilidades.redimensionarFrameTotal());
         this.setIconImage(logo.getImage());

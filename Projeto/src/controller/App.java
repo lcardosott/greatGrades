@@ -17,21 +17,11 @@ public class App {
     	// bem como as avaliações.
     	
     	//new FrameInicial();
-        Usuario user = new Usuario("user", "Caio", "Unicamp", "Eng. Comp.", "senha");
-        Materia materia = new Materia("materiatop", "a", "nomeProf", 5, 6, 0, 1, user);
-	
-        user.getListaMaterias().add(materia);
-        user.getListaMaterias().add(materia);
-        user.getListaMaterias().add(materia);        
+
         //new FrameCadastroAvaliacao(materia);
-        Avaliacao avaliacao = new Avaliacao("P3","27/06" , 0,3, "Experimento 3 e 4, que se trata de circuitos eletricos e osciloscopio", materia);
-        materia.addAvaliacao(avaliacao);
-        materia.addAvaliacao(avaliacao);
-        materia.addAvaliacao(avaliacao);
-        materia.addAvaliacao(avaliacao);
+        Materia materia = new Materia("a","a","a",1,1,1,1,new Usuario("a","a","a","a","a"));
         //new FramePrincipal(user);
-        //new FrameMateria(materia);
+        new FrameMateria(materia);
         //new FrameAddMateria(user);
-        new FrameInicial();
     }
 }
