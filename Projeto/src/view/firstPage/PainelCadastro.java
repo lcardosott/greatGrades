@@ -22,9 +22,10 @@ public class PainelCadastro extends JPanel implements ActionListener {
     private JTextField instituicaoCadastro;
     private JTextField cursoCadastro;
     private JTextField senhaCadastro;
-    //private JFrame frame;
+    private JFrame frame;
 
     public PainelCadastro (JFrame frame) {
+        this.frame = frame;
         this.setBackground(roxo);
         this.setLayout(null);
         this.setBounds((Utilidades.dimensoesProporçãoLargura(0.6)-500)/2, (Utilidades.dimensoesProporçãoAltura(1)-500)/2 -30, 500, 500);
@@ -89,8 +90,7 @@ public class PainelCadastro extends JPanel implements ActionListener {
             String instituicao = instituicaoCadastro.getText();
             String curso = cursoCadastro.getText();
             String senha = senhaCadastro.getText();
-            new Cadastro(usuario, nome, instituicao, curso, senha);
-            //frame.dispose();
+            new Cadastro(frame, usuario, nome, instituicao, curso, senha);
         }
     }
 }

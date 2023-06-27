@@ -2,19 +2,34 @@ package view.menuprincipal;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.Frame;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.Border;
+
+import controller.Deletar;
 import model.Materia;
 import view.baseClasses.LabelIndicacao;
 import view.baseClasses.Utilidades;
+import view.verMateria.FrameMateria;
 
-public class InfoMateria extends JPanel{
-    public InfoMateria(Materia materia){
+public class InfoMateria extends JPanel implements ActionListener{
+    private Materia materia;
+    private BotaoMateria botao;
+    private JButton x;
+    private Frame framePrincipal;
+    private JButton mais;
+    private JButton menos;
 
+    public InfoMateria(Frame framePrincipal, Materia materia){
+        this.framePrincipal = framePrincipal;
+        this.materia = materia;
         //Border
         Border border = BorderFactory.createLineBorder(Color.white,10);
         //Cor
@@ -40,7 +55,8 @@ public class InfoMateria extends JPanel{
         
 
         //Botao ver materia
-        BotaoMateria botao = new BotaoMateria();
+        botao = new BotaoMateria();
+        botao.addActionListener(this);
         botao.setBounds(Utilidades.dimensoesProporçãoLargura(0.65)-Utilidades.dimensoesProporçãoLargura(0.1),
         Utilidades.dimensoesProporçãoAltura(0.35)-Utilidades.dimensoesProporçãoAltura(0.05)-50,
         Utilidades.dimensoesProporçãoLargura(0.1), 
@@ -57,7 +73,7 @@ public class InfoMateria extends JPanel{
         numeroFaltas.setBorder(BorderFactory.createLineBorder(Color.black,1));
         numeroFaltas.setHorizontalAlignment(JLabel.CENTER);
 
-        JButton mais = new JButton();
+        mais = new JButton();
         mais.setText("+");
         mais.setFont(new Font("Arial",Font.BOLD,20));
         mais.setBackground(new Color(0XFFD954));
@@ -66,7 +82,7 @@ public class InfoMateria extends JPanel{
         mais.setFocusPainted(false);
         mais.setBounds(Utilidades.dimensoesProporçãoLargura(0.65)-Utilidades.dimensoesProporçãoLargura(0.1) + 68, Utilidades.dimensoesProporçãoAltura(0.07)+ 22,23,23);
 
-        JButton menos = new JButton();
+        menos = new JButton();
         menos.setText("-");
         menos.setFont(new Font("Arial",Font.BOLD,20));
         menos.setBackground(new Color(0XFFD954));
@@ -82,7 +98,7 @@ public class InfoMateria extends JPanel{
         this.add(warning);
 
         //Delete
-        JButton x = new JButton("x");
+        x = new JButton("x");
         x.setFont(new Font("Arial",Font.BOLD,20));
         x.setForeground(Color.white);
         x.setBackground(Color.red);
@@ -104,8 +120,6 @@ public class InfoMateria extends JPanel{
         LabelIndicacao labelProf = new LabelIndicacao(materia.getNomeProfessor(), new Font("Arial",Font.PLAIN,20), roxo);
         labelProf .setBounds(60+Utilidades.dimensoesProporçãoAltura(0.2),Utilidades.dimensoesProporçãoAltura(0.11) +35, 400, 20);
 
-
-
         this.add(falta);
         this.add(labelNome);
         this.add(labelProf);
@@ -121,4 +135,26 @@ public class InfoMateria extends JPanel{
         materia.setFaltas(materia.getFaltas() + numero);
     }
 
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == botao) {
+            //abrir o frame da matéria
+            new FrameMateria(materia);
+        }
+
+        if (e.getSource() == x) {
+            Deletar.deletarMateria(materia);
+            framePrincipal.repaint();
+        }
+
+        if (e.getSource() == mais) {
+            materia.setFaltas(materia.getFaltas() + 1);
+            this.repaint();
+        }
+
+        if (e.getSource() == menos) {
+            materia.setFaltas(materia.getFaltas() - 1);
+            this.repaint();
+        }
+    }
 }

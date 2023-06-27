@@ -59,7 +59,7 @@ public class FrameMateria extends OriginFrame{
         Header header = new Header(materia);
 
         //Scroll
-        AtividadesScroll scroll = new AtividadesScroll(materia);
+        AtividadesScroll scroll = new AtividadesScroll(this, materia);
         painel.add(scroll);
         painel.add(faltas);
         painel.add(faltaResultado);

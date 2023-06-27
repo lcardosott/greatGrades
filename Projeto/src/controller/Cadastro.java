@@ -1,4 +1,5 @@
 package controller;
+import java.awt.Frame;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -8,12 +9,13 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 import model.Usuario;
+import view.menuprincipal.FramePrincipal;
 
 public class Cadastro {
     private Usuario user; //usuário que está sendo cadastrado
     private static ArrayList<Usuario> listaUsers; //lista que contém todos os usuários do aplicativo
 
-    public Cadastro (String usuario, String nome, String faculdade, String curso, String senha) {
+    public Cadastro (Frame initialFrame, String usuario, String nome, String faculdade, String curso, String senha) {
     	boolean continuar = true;
     	
     	if (usuario.isBlank() || nome.isBlank() || faculdade.isBlank() ||
@@ -22,7 +24,7 @@ public class Cadastro {
     		JOptionPane.showMessageDialog(null, "Preencha todos os campos para prosseguir!", "Aviso", JOptionPane.WARNING_MESSAGE);
     	}
     	
-    	if (continuar) {	
+    	if (continuar) {
     		if (!Verificar.usuarioJaExiste(usuario)) { //verifica se o usuário já existe
     			if (listaUsers == null) {
     				listaUsers = new ArrayList<Usuario>();
@@ -33,6 +35,8 @@ public class Cadastro {
     			String header = "USER,NOME,INSTITUICAO,CURSO,SENHA\n"; 
     			String conteudo = user.getUsuario() + "," + user.getNome() + "," + user.getFaculdade() + "," + user.getCurso() + "," + user.getSenha() + "\n";
     			OriginFile.dealWithFile(usersCSV, header, conteudo);
+				initialFrame.dispose();
+				new FramePrincipal(user);
     		}
         }
     }

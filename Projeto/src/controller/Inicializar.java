@@ -28,6 +28,7 @@ public class Inicializar {
                     bw.write("USER,NOME,INSTITUICAO,CURSO,SENHA");
                     bw.flush();
                     bw.close();
+					fw.close();
                 } 
                 catch (IOException e) {
                     // Erro - joptionpane
@@ -43,6 +44,7 @@ public class Inicializar {
 						Usuario user = new Usuario(campos[0], campos[1], campos[2], campos[3], campos[4]);
 						Cadastro.getListaUsers().add(user);
 					}
+					br.close();
 				}
 			}
 		
@@ -53,6 +55,7 @@ public class Inicializar {
                     bw.write("USER,NOME,MATERIA,TURMA,NOME_PROFESSOR,NOTA_MINIMA,NUMERO_CREDITOS,NUMERO_FALTAS,TIPO_MEDIA");
                     bw.flush();
                     bw.close();
+					fw.close();
                 } 
                 catch (IOException e) {
                 	// Erro - joptionpane
@@ -75,6 +78,6 @@ public class Inicializar {
 		
 		catch (IOException e) {
 			// Erro - joptionpane
-		}		
+		}
 	}
 }

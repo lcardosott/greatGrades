@@ -3,6 +3,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.Frame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.BorderFactory;
@@ -28,7 +29,11 @@ import model.*;
 		JTextField fieldCreditos = new JTextField();
 		JTextField fieldNotaMinima = new JTextField();
 		Usuario user;
-		PainelAddMateria(Usuario user){
+		private Frame frameMateria;
+		private Frame framePrincipal;
+		PainelAddMateria(Frame frameMateria, Frame framePrincipal, Usuario user){
+			this.frameMateria = frameMateria;
+			this.framePrincipal = framePrincipal;
 			this.user = user;
 			//////// Fonte acima dos TextFields ///////////
 
@@ -116,7 +121,7 @@ import model.*;
 				String creditosMateria = fieldCreditos.getText();
 				String notaMinMateria = fieldNotaMinima.getText();
 				
-				new AddMateria(user, nomeMateria, turmaMateria, profMateria, notaMinMateria, creditosMateria, tipoMediaMateria);
+				new AddMateria(frameMateria, framePrincipal, user, nomeMateria, turmaMateria, profMateria, notaMinMateria, creditosMateria, tipoMediaMateria);
 			}
 		}
 		

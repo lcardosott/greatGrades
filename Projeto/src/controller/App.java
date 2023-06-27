@@ -12,7 +12,7 @@ import view.firstPage.FrameInicial;
 
 public class App {
     public static void main(String[] args) {
-    	Inicializar.lerTudo();
+    	//Inicializar.lerTudo();
     	// Depois do login, deve-se ler as matérias que pertencem a um user,
     	// bem como as avaliações.
     	
@@ -30,7 +30,8 @@ public class App {
         materia.addAvaliacao(avaliacao);
         materia.addAvaliacao(avaliacao);
         //new FramePrincipal(user);
-        new FrameMateria(materia);
-        new FrameAddMateria(user);
+        //new FrameMateria(materia);
+        //new FrameAddMateria(user);
+        new FrameInicial();
     }
 }

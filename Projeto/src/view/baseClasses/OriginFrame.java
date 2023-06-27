@@ -9,7 +9,7 @@ public abstract class OriginFrame extends JFrame {
         this.setIconImage(logo.getImage());
         this.setResizable(false);
         this.setLayout(null); //positions defined explicitly by the programmer
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        //this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setTitle("Great Grades");
         this.setIconImage(logo.getImage());
     }

@@ -1,4 +1,5 @@
 package controller;
+import java.awt.Frame;
 import java.io.File;
 import javax.swing.JOptionPane;
 import model.Avaliacao;
@@ -7,7 +8,7 @@ import model.InterfaceMateria;
 public class CadastroAvaliacao {
     private Avaliacao avaliacao;
     
-    public CadastroAvaliacao(String nome, String data, String nota, String pesoNaMedia, String extraInfo, InterfaceMateria materia) {
+    public CadastroAvaliacao(Frame frame, String nome, String data, String nota, String pesoNaMedia, String extraInfo, InterfaceMateria materia) {
         double notaDouble = 0;
         double pesoNaMediaDouble = 0;
         boolean checkNota = false;
@@ -36,6 +37,7 @@ public class CadastroAvaliacao {
             String header = "USER,NOME_MATERIA,NOME_AVALIACAO,DATA_AVALIACAO,NOTA,PESO_NA_MEDIA,EXTRA_INFO\n"; 
             String conteudo = materia.getUser().getUsuario() + "," + materia.getNome() + "," + avaliacao.getNome() + "," + avaliacao.getData() + "," + avaliacao.getNota() + "," + avaliacao.getPesoNaMedia()+ "," + avaliacao.getExtraInfo() +"\n";
 			OriginFile.dealWithFile(avaliacoesCSV, header, conteudo);
+            frame.dispose();
         }
     }
 
