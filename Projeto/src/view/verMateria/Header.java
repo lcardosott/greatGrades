@@ -10,7 +10,6 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import model.InterfaceMateria;
-import model.Materia;
 import view.baseClasses.LabelIndicacao;
 import view.baseClasses.Utilidades;
 import view.cadastroAvaliacao.FrameCadastroAvaliacao;
