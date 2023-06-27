@@ -4,6 +4,7 @@ import java.io.File;
 import javax.swing.JOptionPane;
 import model.Avaliacao;
 import model.InterfaceMateria;
+import view.verMateria.FrameMateria;
 
 public class CadastroAvaliacao {
     private Avaliacao avaliacao;
@@ -38,6 +39,7 @@ public class CadastroAvaliacao {
             String conteudo = materia.getUser().getUsuario() + "," + materia.getNome() + "," + avaliacao.getNome() + "," + avaliacao.getData() + "," + avaliacao.getNota() + "," + avaliacao.getPesoNaMedia()+ "," + avaliacao.getExtraInfo() +"\n";
 			OriginFile.dealWithFile(avaliacoesCSV, header, conteudo);
             frame.dispose();
+            new FrameMateria(materia);
         }
     }
 

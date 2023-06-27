@@ -6,15 +6,17 @@ import model.Usuario;
 import view.baseClasses.Utilidades;
 
 public class FramePrincipal extends JFrame {
+    private Usuario user;
     public FramePrincipal(Usuario usuario){
+        this.user = usuario;
         //Imagens
         ImageIcon logo = new ImageIcon("imagens/Logo.jpg");
 
         //Fonte
 
         PainelSuperior painelSuperior = new PainelSuperior();
-        PainelInferiorEsquerdo painelInferiorEsquerdo = new PainelInferiorEsquerdo(usuario.getListaMaterias());
-        PainelInferiorDireito painelInferiorDireito = new PainelInferiorDireito(usuario);
+        PainelInferiorEsquerdo painelInferiorEsquerdo = new PainelInferiorEsquerdo(this, usuario.getListaMaterias());
+        PainelInferiorDireito painelInferiorDireito = new PainelInferiorDireito(this, usuario);
 
         this.setSize(Utilidades.redimensionarFrameTotal());
         this.setIconImage(logo.getImage());
@@ -30,5 +32,9 @@ public class FramePrincipal extends JFrame {
         this.add(painelInferiorEsquerdo);
         this.add(painelInferiorDireito);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+
+    public Usuario getUser() {
+        return this.user;
     }
 }

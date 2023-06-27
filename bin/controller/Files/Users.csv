@@ -1,22 +1,2 @@
-USER,NOME,INSTITUICAO,CURSO,SENHATesteFoda,Obaa,Unicamp,Engenharia,senha
-UsuarioTeste,Caio,Unicamp,Engenharia,Senha
-UsuarioTester,Caio,Unicamp,Engenharia,Senha
-aaaaaa,Usuario,eng,engoo,senhaa
-Teste,Caio Porto,Unicamp,Engenharia da Computação,senha
-1,1,1,1,1
-a,a,a,a,a
-a,a,a,a,a
-a,a,a,a,a
-a,a,a,a,a
-a,a,a,a,a
-a,a,a,a,a
-a,a,a,a,a
-1,1,1,1,1
-rafinha,Rafa,unicamp,engcomp,123
-a,a,aa,a,a
-a,a,a,a,a
-1,1,1,1,1
-1,1,1,1,1
-1,1,1,1,1
-1,1,1,1,1
-a,a,a,a,a
+USER,NOME,INSTITUICAO,CURSO,SENHA
+user,aa,a,a,senha

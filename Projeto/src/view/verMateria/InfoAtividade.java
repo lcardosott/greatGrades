@@ -75,6 +75,7 @@ public class InfoAtividade  extends JPanel implements ActionListener{
         ok.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1, false));
         ok.setFocusPainted(false);
         ok.setBounds(Utilidades.dimensoesProporçãoLargura(0.34), Utilidades.dimensoesProporçãoAltura(0.10), 100, 25);
+        ok.addActionListener(this);
         this.add(ok);
 
 
@@ -87,6 +88,7 @@ public class InfoAtividade  extends JPanel implements ActionListener{
         x.setFocusPainted(false);
         x.setBounds( Utilidades.dimensoesProporçãoLargura(0.43),0,Utilidades.dimensoesProporçãoAltura(0.03), Utilidades.dimensoesProporçãoAltura(0.03));
         this.add(x);
+        x.addActionListener(this);
 
     }
 
@@ -97,15 +99,17 @@ public class InfoAtividade  extends JPanel implements ActionListener{
             if (Pattern.matches("[0-9,]*", newNotaStr)) {
                 double newNota =Double.parseDouble(newNotaStr);
                 avaliacao.setNota(newNota);
-                frameMateria.repaint();
+                frameMateria.dispose();
+                new FrameMateria(((FrameMateria) frameMateria).getMateria());
             } else {
                 JOptionPane.showMessageDialog(null, "O campo 'Nota' deve necessariamente ser um número.\nUse '.' para separar as casas decimais.", "Campo inadequado!", JOptionPane.ERROR_MESSAGE);
             }
         }
 
         if (e.getSource() == x) {
-            Deletar.deletarAvaliacao(avaliacao);
-            frameMateria.repaint();
+            Deletar.deletarAvaliacao(((FrameMateria) frameMateria).getMateria(), avaliacao);
+            frameMateria.dispose();
+            new FrameMateria(((FrameMateria) frameMateria).getMateria());
         }
     }
 }

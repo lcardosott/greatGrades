@@ -14,7 +14,7 @@ public class FrameAddMateria extends OriginFrame {
 	JLabel labelFundo;
 	Usuario user;
 	
-	public FrameAddMateria(Usuario user) {
+	public FrameAddMateria(JFrame framePrincipal, Usuario user) {
 	///////////// Label logo e fundo ////////////////	
 		this.user = user;
 		// Fundo:
@@ -28,7 +28,7 @@ public class FrameAddMateria extends OriginFrame {
         labelFundo.setVerticalAlignment(JLabel.BOTTOM);
 
     ///////////// Painel add materia ////////////////
-        painelAddMateria = new PainelAddMateria(this,user);
+        painelAddMateria = new PainelAddMateria(this,framePrincipal, user);
 		
 	/////////// Adds e frame ///////////////////////
 		this.setLayout(new BorderLayout());

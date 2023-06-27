@@ -1,22 +1,20 @@
 package view.verMateria;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import java.awt.Color;
 import java.awt.Font;
 
-import model.Materia;
+import model.InterfaceMateria;
 import view.baseClasses.LabelIndicacao;
 import view.baseClasses.OriginFrame;
 import view.baseClasses.Utilidades;
 
 public class FrameMateria extends OriginFrame{
-    
-    public FrameMateria(Materia materia) {
-        this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+    private InterfaceMateria materia;
+    public FrameMateria(InterfaceMateria materia) {
+        this.materia = materia;
         Color roxo = new Color(0xFDB5ED);
         ImageIcon fundo = new ImageIcon("imagens/fundo.png");
         JPanel painel = new JPanel();
@@ -57,17 +55,7 @@ public class FrameMateria extends OriginFrame{
         atividades.setBounds(Utilidades.dimensoesProporçãoLargura(0.02),Utilidades.dimensoesProporçãoLargura(0.02) + Utilidades.dimensoesProporçãoAltura(0.2) + 80, 300,33);
 
         //Header
-        Header header = new Header(materia);
-
-        //Botão Voltar
-        JButton voltar = new JButton("<-- Voltar");
-        voltar.setFont(new Font("Arial",Font.BOLD,25));
-        voltar.setForeground(Color.white);
-        voltar.setBackground(Color.red);
-        voltar.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1, false));
-        voltar.setFocusPainted(false);
-        voltar.setBounds( Utilidades.dimensoesProporçãoLargura(0.80),100,150, 40);
-        this.add(voltar);
+        Header header = new Header(this, materia);
 
         //Scroll
         AtividadesScroll scroll = new AtividadesScroll(this, materia);
@@ -79,13 +67,14 @@ public class FrameMateria extends OriginFrame{
         painel.add(atividades);
         painel.add(header);
 
-
-
-
         //Visibilidade
         this.getContentPane().setBackground(Color.WHITE);
         this.setVisible(true);
         this.add(painel);
         this.add(labelFundo);
-}
+    }
+
+    public InterfaceMateria getMateria() {
+        return this.materia;
+    }
 }

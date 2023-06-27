@@ -12,8 +12,8 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import controller.CadastroAvaliacao;
+import model.InterfaceMateria;
 //import controller.CadastroProva;
-import model.Materia;
 import view.baseClasses.LabelIndicacao;
 import view.baseClasses.Utilidades;
 import view.baseClasses.OriginFrame;
@@ -27,11 +27,11 @@ public class FrameCadastroAvaliacao extends OriginFrame implements ActionListene
     private JTextField nota;
     private JTextField pesoNaMedia;
     private JTextField extraInfo;
-    private Materia materia;
+    private InterfaceMateria materia;
     JComboBox<String> fieldTipoAvaliacao;
     JPanel painel;
 
-    public FrameCadastroAvaliacao(Materia materia) {
+    public FrameCadastroAvaliacao(InterfaceMateria materia) {
         painel = new JPanel();
         this.materia = materia;
 

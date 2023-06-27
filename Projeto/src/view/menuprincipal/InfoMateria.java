@@ -15,6 +15,7 @@ import javax.swing.border.Border;
 
 import controller.Deletar;
 import model.Materia;
+import model.Usuario;
 import view.baseClasses.LabelIndicacao;
 import view.baseClasses.Utilidades;
 import view.verMateria.FrameMateria;
@@ -23,17 +24,18 @@ public class InfoMateria extends JPanel implements ActionListener{
     private Materia materiaClasse;
     private BotaoMateria botao;
     private JButton x;
-    private PainelMateria painelClasse;
     private JButton mais;
     private JButton menos;
     private LabelIndicacao numeroFaltas;
+    private JFrame framePrincipal;
 
-    public InfoMateria(Materia materia, PainelMateria painel){
+    public InfoMateria(Materia materia, JFrame framePrincipal){
+        this.framePrincipal = framePrincipal;
         //Border
         Border border = BorderFactory.createLineBorder(Color.white,10);
         //Cor
         Color roxo = new Color(0xFDB5ED);
-        this.painelClasse = painel;
+        //this.painelClasse = painel;
         this.materiaClasse= materia;
         //Seta parametros basicos
         this.setLayout(null);
@@ -81,6 +83,7 @@ public class InfoMateria extends JPanel implements ActionListener{
         this.mais.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
         this.mais.setFocusPainted(false);
         this.mais.setBounds(Utilidades.dimensoesProporçãoLargura(0.65)-Utilidades.dimensoesProporçãoLargura(0.1) + 68, Utilidades.dimensoesProporçãoAltura(0.07)+ 22,23,23);
+        mais.addActionListener(this);
 
         this.menos = new JButton();
         this.menos.setText("-");
@@ -90,6 +93,7 @@ public class InfoMateria extends JPanel implements ActionListener{
         this.menos.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
         this.menos.setFocusPainted(false);
         this.menos.setBounds(Utilidades.dimensoesProporçãoLargura(0.65)-Utilidades.dimensoesProporçãoLargura(0.1) + 95, Utilidades.dimensoesProporçãoAltura(0.07)+ 22,23,23);
+        menos.addActionListener(this);
 
 
         //Warninggg
@@ -105,7 +109,9 @@ public class InfoMateria extends JPanel implements ActionListener{
         this.x.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1, false));
         this.x.setFocusPainted(false);
         this.x.setBounds(Utilidades.dimensoesProporçãoLargura(0.65),10,Utilidades.dimensoesProporçãoAltura(0.03), Utilidades.dimensoesProporçãoAltura(0.03));
+        this.x.addActionListener(this);
         this.add(x);
+
 
         //########################################################
         //Informacoes materia
@@ -144,17 +150,26 @@ public class InfoMateria extends JPanel implements ActionListener{
 
         if (e.getSource() == x) {
             Deletar.deletarMateria(materiaClasse);
-            this.painelClasse.repaint();
+            //this.painelClasse.repaint();
+            Usuario user = ((FramePrincipal) framePrincipal).getUser();
+            framePrincipal.dispose();
+            new FramePrincipal(user);
         }
 
         if (e.getSource() == mais) {
             materiaClasse.setFaltas(materiaClasse.getFaltas() + 1);
             this.numeroFaltas.validate();
+            Usuario user = ((FramePrincipal) framePrincipal).getUser();
+            framePrincipal.dispose();
+            new FramePrincipal(user);
         }
 
         if (e.getSource() == menos) {
             materiaClasse.setFaltas(materiaClasse.getFaltas() - 1);
             this.numeroFaltas.validate();
+            Usuario user = ((FramePrincipal) framePrincipal).getUser();
+            framePrincipal.dispose();
+            new FramePrincipal(user);
         }
     }
 }

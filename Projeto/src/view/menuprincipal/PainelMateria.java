@@ -8,7 +8,10 @@ import model.Materia;
 
 
 public class PainelMateria extends JPanel{
-    public PainelMateria(ArrayList<Materia> listaMaterias){
+    private JFrame framePrincipal;
+
+    public PainelMateria(JFrame framePrincipal, ArrayList<Materia> listaMaterias){
+        this.framePrincipal = framePrincipal;
             this.setBackground(Color.WHITE);
             this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
             adicionaMaterias(listaMaterias);
@@ -16,7 +19,7 @@ public class PainelMateria extends JPanel{
     }
     public void adicionaMaterias(ArrayList<Materia> listaMaterias){
         for(Materia materia: listaMaterias){
-            this.add(new InfoMateria(materia, this));
+            this.add(new InfoMateria(materia, framePrincipal));
         }
     }
 }

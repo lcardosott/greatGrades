@@ -27,7 +27,7 @@ public class Buscar {
 			
 			String linha = br.readLine();
 	    	linha = br.readLine();
-	    	int currIndex = 1;
+	    	int currIndex = 2;
 
 	    	while (linha != null) {
 	    		String[] campos = linha.split(",");
@@ -56,7 +56,7 @@ public class Buscar {
 			
 			String linha = br.readLine();
 	    	linha = br.readLine();
-	    	int currIndex = 1;
+	    	int currIndex = 2;
 
 	        while (linha != null) {
 	    		String[] campos = linha.split(",");

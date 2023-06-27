@@ -13,7 +13,6 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.Border;
 import view.baseClasses.*;
-import view.verMateria.FrameMateria;
 import controller.*;
 import model.*;
 
@@ -31,8 +30,11 @@ import model.*;
 		JTextField fieldNotaMinima = new JTextField();
 		Usuario user;
 		private JFrame frameMateria;
+		private JFrame framePrincipal;
 
-		public PainelAddMateria(JFrame frameMateria, Usuario user){
+		PainelAddMateria(JFrame frameMateria, JFrame framePrincipal, Usuario user){
+			this.frameMateria = frameMateria;
+			this.framePrincipal = framePrincipal;
 			this.user = user;
 			//////// Fonte acima dos TextFields ///////////
 			this.frameMateria = frameMateria;
@@ -120,7 +122,7 @@ import model.*;
 				String creditosMateria = fieldCreditos.getText();
 				String notaMinMateria = fieldNotaMinima.getText();
 				
-				new AddMateria(frameMateria, user, nomeMateria, turmaMateria, profMateria, notaMinMateria, creditosMateria, tipoMediaMateria);
+				new AddMateria(frameMateria, framePrincipal, user, nomeMateria, turmaMateria, profMateria, notaMinMateria, creditosMateria, tipoMediaMateria);
 			}
 		}
 		
