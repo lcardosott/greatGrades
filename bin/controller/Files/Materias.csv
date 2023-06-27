@@ -1,3 +1,5 @@
 USER,NOME,MATERIA,TURMA,NOME_PROFESSOR,NOTA_MINIMA,NUMERO_CREDITOS,NUMERO_FALTAS,TIPO_MEDIATeste,Materia,A,Nome professor,5.0,4,0,1
 Teste,Nome da materia,A,Ronaldo,5.0,4,0,1
 Teste,Materia,A,Nome,5.0,1,0,1
+UsuarioTeste,Materia,A,Nome,5.0,2,0,1
+UsuarioTeste,Nome,A,S,5.0,1,0,1

@@ -6,7 +6,10 @@ import java.awt.event.ActionListener;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JPanel;
+
+import model.InterfaceMateria;
 import model.Materia;
 import view.baseClasses.LabelIndicacao;
 import view.baseClasses.Utilidades;
@@ -14,9 +17,11 @@ import view.cadastroAvaliacao.FrameCadastroAvaliacao;
 
 public class Header extends JPanel implements ActionListener {
     private JButton adiciona;
-    private Materia materia;
+    private InterfaceMateria materia;
+    private JFrame frameMateria;
 
-    public Header(Materia materia){
+    public Header(JFrame frameMateria, InterfaceMateria materia){
+        this.frameMateria = frameMateria;
         this.materia = materia;
         this.setBackground(Color.white);
         this.setLayout(null);
@@ -54,6 +59,7 @@ public class Header extends JPanel implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == adiciona) {
+            frameMateria.dispose();
             new FrameCadastroAvaliacao(materia);
         }
     }

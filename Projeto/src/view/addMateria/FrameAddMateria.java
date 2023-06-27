@@ -2,9 +2,8 @@ package view.addMateria;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Frame;
-
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
@@ -15,12 +14,10 @@ public class FrameAddMateria extends OriginFrame {
 	JPanel painelAddMateria;
 	JLabel labelFundo;
 	Usuario user;
-	private Frame framePrincipal;
 	
-	public FrameAddMateria(Frame framePrincipal, Usuario user) {
+	public FrameAddMateria(JFrame framePrincipal, Usuario user) {
 	///////////// Label logo e fundo ////////////////	
 		this.user = user;
-		this.framePrincipal = framePrincipal;
 		// Fundo:
         JLabel labelFundo;
         ImageIcon fundo = new ImageIcon("imagens/fundo.png");

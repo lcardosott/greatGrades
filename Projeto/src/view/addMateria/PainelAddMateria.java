@@ -3,12 +3,12 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
-import java.awt.Frame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.Border;
@@ -29,9 +29,10 @@ import model.*;
 		JTextField fieldCreditos = new JTextField();
 		JTextField fieldNotaMinima = new JTextField();
 		Usuario user;
-		private Frame frameMateria;
-		private Frame framePrincipal;
-		PainelAddMateria(Frame frameMateria, Frame framePrincipal, Usuario user){
+		private JFrame frameMateria;
+		private JFrame framePrincipal;
+
+		PainelAddMateria(JFrame frameMateria, JFrame framePrincipal, Usuario user){
 			this.frameMateria = frameMateria;
 			this.framePrincipal = framePrincipal;
 			this.user = user;

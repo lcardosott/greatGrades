@@ -7,6 +7,7 @@ import javax.swing.JPanel;
 import java.awt.Color;
 import java.awt.Font;
 
+import model.InterfaceMateria;
 import model.Materia;
 import view.baseClasses.LabelIndicacao;
 import view.baseClasses.OriginFrame;
@@ -14,8 +15,7 @@ import view.baseClasses.Utilidades;
 
 public class FrameMateria extends OriginFrame{
     
-    public FrameMateria(Materia materia) {
-        this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+    public FrameMateria(InterfaceMateria materia) {
         Color roxo = new Color(0xFDB5ED);
         ImageIcon fundo = new ImageIcon("imagens/fundo.png");
         JPanel painel = new JPanel();
@@ -56,7 +56,7 @@ public class FrameMateria extends OriginFrame{
         atividades.setBounds(Utilidades.dimensoesProporçãoLargura(0.02),Utilidades.dimensoesProporçãoLargura(0.02) + Utilidades.dimensoesProporçãoAltura(0.2) + 80, 300,33);
 
         //Header
-        Header header = new Header(materia);
+        Header header = new Header(this, materia);
 
         //Scroll
         AtividadesScroll scroll = new AtividadesScroll(this, materia);
