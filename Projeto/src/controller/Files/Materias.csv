@@ -6,3 +6,13 @@ UsuarioTeste,Nome,A,S,5.0,1,0,1
 user,Nome,A,Nome,5.0,3,0,1
 user,Materia 2,B,nomeProf,5.0,1,0,1
 user,Materia,A,Professor,5.0,1,0,1
+rafinha,1,1,1,1.0,11,0,1
+rafinha,2,2,2,2.0,2,0,1
+rafinha,3,3,3,3.0,3,0,1
+brasil,F329,X,Thiago,5.0,2,0,1
+estudante,F329,X,Thiago Alegre,5.0,2,0,1
+estudante,MA311,I,Christian Horacio Oliveira,5.0,4,0,1
+estudante,MC322,A,Esther Luna Colombini,5.0,4,0,1
+estudante,EA513,A,Christian Lira,5.0,4,0,1
+estudante,F328,I,Flavia Sobreira,5.0,4,0,1
+vanessa,Matematica,-,Miguel,5.0,2,0,1

@@ -1,3 +1,16 @@
 USER,NOME_MATERIA,NOME_AVALIACAO,DATA_AVALIACAO,NOTA,PESO_NA_MEDIA,EXTRA_INFO
 user,Nome,p2,10,1.0,1.0,e
 user,Nome,p6,20/10,10.0,1.0,1
+rafinha,1,p1,22/05,3.0,1.0,prova 1 dificil
+brasil,F329,P2,28/06,6.0,1.0,Experimento 3 e 4
+brasil,F329,111,1,1.0,1.0,1
+brasil,F329,3,3,3.0,3.0,3
+estudante,MA311,P1,22/04,7.5,1.0,Calculo de E.D.O, saber os principais métodos de resolução
+estudante,MA311,P2,30/06,0.0,1.0,Calculo de E.D.O. a partir de series de potência, resolução de sistemas, series de Fourrier
+estudante,F329,Experimento 1,15/04,8.5,0.0825,Campos e multimetro
+estudante,F329,Experimento 2,10/05,6.5,0.0825,-
+estudante,F329,P1,30/05,8.0,0.33,Referente ao experimento 1 e 2
+estudante,EA513,P1,15/04,5.0,1.0,Leis de kirchoff
+estudante,EA513,P2,30/05,10.0,1.0,Capacitores e indutores
+estudante,EA513,P3,29/06,0.0,1.0,Uso de fasores
+estudante,MA311,P3,29/06,0.0,1.0,Fasores e circuitos RLC
