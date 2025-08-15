@@ -14,7 +14,7 @@ There are four main screens:
  - a subject view screen that contains assessments, deadlines, and grades, and
  - a screen to view and add new exams.
 
-![Figure 1: Figma front-end design.](imagens\greatGrades_frontend_figma.png)
+![Figure 1: Figma front-end design.](imagens/greatGrades_frontend_figma.png)
 
 
 ### Defining Classes and program structure
